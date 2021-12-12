@@ -1,11 +1,19 @@
 export default () => {
+  let buttonAlert = () => {
+    alert("Clicked!");
+  };
+
   return (
     <div>
       <div className="frame">
         <h2 className="title">プロフィール設定</h2>
         <div className="flex">
           <div className="item-place user-space">ユーザー名</div>
-          <input className="input-padding input-place" value="テキストテキスト" disabled />
+          <input
+            className="input-padding input-place"
+            value="テキストテキスト"
+            disabled
+          />
         </div>
         <div className="flex">
           <div className="item-place mail-space">メールアドレス</div>
@@ -21,7 +29,9 @@ export default () => {
           <textarea className="input-padding textarea-size" />
         </div>
         <div className="flex">
-          <button type="submit" className="submit-btn">保存する</button>
+          <button type="submit" className="submit-btn" onClick={() => {buttonAlert()}}>
+            保存する
+          </button>
         </div>
       </div>
       <style jsx>{`
