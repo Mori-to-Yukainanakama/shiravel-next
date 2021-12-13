@@ -59,7 +59,15 @@ export default function question() {
 
                     .question__body {
                         height: 1000px;
-                        background-color: red;
+                        background-color: #55fffd;
+                    }
+
+                    .question__body--text {
+                        padding: 100px;
+                    }
+
+                    .question__body--p {
+                        padding-top: 50px;
                     }
                 `}
             </style>
@@ -83,7 +91,40 @@ export default function question() {
                 </div>
             </div>
             <div className="question__body">
-
+                <div className="question__body--text">
+                    <h2>Next.jsが難しいです。。</h2>
+                    <p className="question__body--p">
+                        texttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttextttexttexttext
+                        exttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttext
+                        texttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttext
+                        texttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttext
+                        texttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttext
+                        texttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttext
+                        texttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttext
+                        texttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttext
+                        texttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttext
+                        texttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttextttexttexttext
+                        exttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttext
+                        texttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttext
+                        texttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttext
+                        texttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttext
+                        texttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttextttexttexttext
+                        exttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttext
+                        texttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttext
+                        texttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttext
+                        texttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttext
+                        texttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttextttexttexttext
+                        exttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttext
+                        texttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttext
+                        texttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttext
+                        texttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttext
+                        texttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttextttexttexttext
+                        exttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttext
+                        texttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttext
+                        texttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttext
+                        texttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttext
+                    </p>
+                </div>
             </div>
         </div>
     );
