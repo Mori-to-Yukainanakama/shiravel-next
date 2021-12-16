@@ -1,3 +1,6 @@
+import { FcGenericSortingDesc } from "react-icons/fc"
+import { IconContext } from "react-icons/lib";
+
 
 export default function question() {
     return (
@@ -58,16 +61,51 @@ export default function question() {
                     }
 
                     .question__body {
-                        height: 1000px;
+                        padding-left: 50px;
                         background-color: #55fffd;
                     }
 
-                    .question__body--text {
-                        padding: 100px;
+                    .question__body--box {
+                        height: 700px;
+                        padding: 50px;
+                        overflow: auto;
                     }
 
-                    .question__body--p {
+                    .question__body--text {
                         padding-top: 50px;
+                    }
+
+                    .question__body--text span {
+                        font-size: 20px;
+                        font-weight: bold;
+                        border-bottom: solid 1px #4e524e;
+                    }
+
+                    .question__answer {
+                        height: 700px;
+                        background-color: #92db8a;
+                    }
+
+                    .question__answer--box {
+                        padding: 50px;
+                        width: 100%;
+                    }
+
+                    .question__answer--head {
+                        padding: 0 50px;
+                        border-bottom: solid 1px #4e524e;
+                        display: flex;
+                        justify-content: flex-end;
+                    }
+
+                    .question__answer--heading {
+                        font-size: 30px;
+                        margin-right: auto;
+                        margin-left: 20px;
+                    }
+
+                    .question__answer--sort {
+                        margin-right: 30px;
                     }
                 `}
             </style>
@@ -91,23 +129,17 @@ export default function question() {
                 </div>
             </div>
             <div className="question__body">
-                <div className="question__body--text">
-                    <h2>Next.jsが難しいです。。</h2>
-                    <p className="question__body--p">
+                <div className="question__body--box">
+                    <p className="question__body--text">
+                        <span>Next.jsが難しいですうううう</span><br />
                         texttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttextttexttexttext
-                        exttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttext
-                        texttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttext
-                        texttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttext
-                        texttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttext
-                        texttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttext
-                        texttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttext
-                        texttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttext
-                        texttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttext
-                        texttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttextttexttexttext
-                        exttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttext
-                        texttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttext
-                        texttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttext
-                        texttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttext
+                        exttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttextte
+                        texttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttextt
+                        texttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttextt
+                        texttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttextt
+                        texttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttextt
+                        texttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttextt
+                        texttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttextt
                         texttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttextttexttexttext
                         exttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttext
                         texttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttext
@@ -122,8 +154,84 @@ export default function question() {
                         exttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttext
                         texttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttext
                         texttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttext
+                        texttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttext
+                        texttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttextttexttexttext
+                        exttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttext
+                        texttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttext
+                        texttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttext
+                        texttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttext
+                        exttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttextte
+                        texttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttextt
+                        texttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttextt
+                        texttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttextt
+                        texttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttextt
+                        texttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttextt
+                        texttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttextt
+                        texttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttextttexttexttext
+                        exttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttext
+                        texttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttext
+                        texttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttext
+                        texttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttext
+                        texttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttextttexttexttext
+                        exttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttext
+                        texttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttext
+                        texttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttextttexttexttext
+                        exttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttextte
+                        texttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttextt
+                        texttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttextt
+                        texttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttextt
+                        texttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttextt
+                        texttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttextt
+                        texttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttextt
+                        texttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttextttexttexttext
+                        exttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttext
+                        texttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttext
+                        texttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttext
+                        texttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttext
+                        texttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttextttexttexttext
+                        exttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttext
+                        texttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttext
+                        texttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttext
+                        texttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttext
+                        texttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttextttexttexttext
+                        exttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttext
+                        texttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttext
+                        texttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttext
+                        texttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttext
+                        texttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttextttexttexttext
+                        exttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttext
+                        texttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttext
+                        texttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttext
+                        texttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttext
+                        exttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttextte
+                        texttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttextt
+                        texttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttextt
+                        texttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttextt
+                        texttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttextt
+                        texttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttextt
+                        texttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttextt
+                        texttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttextttexttexttext
+                        exttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttext
+                        texttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttext
+                        texttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttext
+                        texttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttext
+                        texttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttextttexttexttext
+                        exttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttext
                         texttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttext
                     </p>
+                </div>
+            </div>
+            <div className="question__answer">
+                <div className="question__answer--box">
+                    <div className="question__answer--head">
+                        <span className="question__answer--heading">回答：3件</span>
+                        <IconContext.Provider value={{ size: '20px' }}>
+                            <FcGenericSortingDesc />
+                            <span className="question__answer--sort">新しい順</span>
+                            <FcGenericSortingDesc />
+                            <span>古い順</span>
+                        </IconContext.Provider>
+                    </div>
                 </div>
             </div>
         </div>
