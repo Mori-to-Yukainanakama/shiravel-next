@@ -1,6 +1,6 @@
 import { FcGenericSortingDesc } from "react-icons/fc"
 import { IconContext } from "react-icons/lib";
-
+import { UserName } from "./UserName.js";
 
 export default function question() {
     return (
@@ -125,13 +125,6 @@ export default function question() {
 
                     .question__answer--text {
                         padding: 30px;
-                    }
-
-                    .question__answer--userimage {
-                        width: 30px;
-                        height: 30px;
-                        border-radius: 30px;
-                        margin-left: 30px;
                     }
                 `}
             </style>
@@ -286,8 +279,7 @@ export default function question() {
                         </div>
                         <div className="question__answer--user">
                             <span>投稿 2021/12/18</span>
-                            <img className="question__answer--userimage" src="/images/mori.jpeg" />
-                            <span className="question__question--name">モリモリ</span>
+                            <UserName width="30px" height="30px" radius="30px" />
                         </div>
                     </div>
                     )}
