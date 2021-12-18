@@ -82,7 +82,6 @@ export default function question() {
                     }
 
                     .question__answer {
-                        height: 700px;
                         background-color: #92db8a;
                     }
 
@@ -106,6 +105,33 @@ export default function question() {
 
                     .question__answer--sort {
                         margin-right: 30px;
+                    }
+
+                    .question__answer--body {
+                        width: 80%;
+                        margin: 0 auto;
+                        border-bottom: 1px solid #4e524e;
+                        padding: 50px;
+                    }
+
+                    .question__answer--user {
+                        height: 30px;
+                        font-size: 14px;
+                        display: flex;
+                        justify-content: flex-end;
+                        padding: 30px;
+                        line-height: 30px;
+                    }
+
+                    .question__answer--text {
+                        padding: 30px;
+                    }
+
+                    .question__answer--userimage {
+                        width: 30px;
+                        height: 30px;
+                        border-radius: 30px;
+                        margin-left: 30px;
                     }
                 `}
             </style>
@@ -232,6 +258,39 @@ export default function question() {
                             <span>古い順</span>
                         </IconContext.Provider>
                     </div>
+                    {[1,2,3].map((key, value) =>
+                    <div className="question__answer--body" key={key}>
+                        <div className="question__answer--text">
+                            <span>
+                                回答回答回答回答回答回答回答回答回答回答回答回答回答回答回答回答回答回答回答回答回答
+                                回答回答回答回答回答回答回答回答回答回答回答回答回答回答回答回答回答回答回答回答回答
+                                回答回答回答回答回答回答回答回答回答回答回答回答回答回答回答回答回答回答回答回答回答
+                                回答回答回答回答回答回答回答回答回答回答回答回答回答回答回答回答回答回答回答回答回答
+                                回答回答回答回答回答回答回答回答回答回答回答回答回答回答回答回答回答回答回答回答回答
+                                回答回答回答回答回答回答回答回答回答回答回答回答回答回答回答回答回答回答回答回答回答
+                                回答回答回答回答回答回答回答回答回答回答回答回答回答回答回答回答回答回答回答回答回答
+                                回答回答回答回答回答回答回答回答回答回答回答回答回答回答回答回答回答回答回答回答回答
+                                回答回答回答回答回答回答回答回答回答回答回答回答回答回答回答回答回答回答回答回答回答
+                                回答回答回答回答回答回答回答回答回答回答回答回答回答回答回答回答回答回答回答回答回答
+                                回答回答回答回答回答回答回答回答回答回答回答回答回答回答回答回答回答回答回答回答回答
+                                回答回答回答回答回答回答回答回答回答回答回答回答回答回答回答回答回答回答回答回答回答
+                                回答回答回答回答回答回答回答回答回答回答回答回答回答回答回答回答回答回答回答回答回答
+                                回答回答回答回答回答回答回答回答回答回答回答回答回答回答回答回答回答回答回答回答回答
+                                回答回答回答回答回答回答回答回答回答回答回答回答回答回答回答回答回答回答回答回答回答
+                                回答回答回答回答回答回答回答回答回答回答回答回答回答回答回答回答回答回答回答回答回答
+                                回答回答回答回答回答回答回答回答回答回答回答回答回答回答回答回答回答回答回答回答回答
+                                回答回答回答回答回答回答回答回答回答回答回答回答回答回答回答回答回答回答回答回答回答
+                                回答回答回答回答回答回答回答回答回答回答回答回答回答回答回答回答回答回答回答回答回答
+                                回答回答回答回答回答回答回答回答回答回答回答回答回答回答回答回答回答回答回答回答回答
+                            </span>
+                        </div>
+                        <div className="question__answer--user">
+                            <span>投稿 2021/12/18</span>
+                            <img className="question__answer--userimage" src="/images/mori.jpeg" />
+                            <span className="question__question--name">モリモリ</span>
+                        </div>
+                    </div>
+                    )}
                 </div>
             </div>
         </div>
