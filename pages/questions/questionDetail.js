@@ -86,6 +86,7 @@ const QuestionDetail = () => {
                       avatar={<Avatar>K</Avatar>}
                       label="Kohei"
                       color="secondary"
+                      clickable
                     />
                   </Grid>
                 </Grid>
