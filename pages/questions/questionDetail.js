@@ -29,8 +29,9 @@ const QuestionDetail = () => {
       {/* Top */}
       <Box
         sx={{
-          height: 200,
           bgcolor: "black",
+          p:4,
+          textAlign: "center",
           ...center_center,
         }}
       >
@@ -78,7 +79,7 @@ const QuestionDetail = () => {
 
             {/* Main */}
             <Grid item xs={9}>
-              <Paper elevation={4} sx={{ bgcolor: "white", height: 400, p: 2 }}>
+              <Paper elevation={4} sx={{ bgcolor: "white", height: 400, p: 3 }}>
                 <Box>Main</Box>
               </Paper>
             </Grid>
@@ -86,7 +87,7 @@ const QuestionDetail = () => {
 
             {/* Sidebar */}
             <Grid item xs={3}>
-              <Paper elevation={4} sx={{ bgcolor: "white", height: 400, p: 2 }}>
+              <Paper elevation={4} sx={{ bgcolor: "white", height: 400, p: 3 }}>
                 <Box>Sidebar</Box>
               </Paper>
             </Grid>
