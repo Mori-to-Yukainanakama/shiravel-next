@@ -10,12 +10,12 @@ import {
 } from "@mui/material";
 import Spacer from "../../components/spacer";
 
-const center_center = {
-  display: "flex",
-  flexDirection: "column",
-  alignItems: "center",
-  justifyContent: "center",
-};
+// const center_center = {
+//   display: "flex",
+//   flexDirection: "column",
+//   alignItems: "center",
+//   justifyContent: "center",
+// };
 
 // const center_left = {
 //   display: "flex",
@@ -30,9 +30,12 @@ const QuestionDetail = () => {
       <Box
         sx={{
           bgcolor: "black",
-          p:4,
+          p: 4,
           textAlign: "center",
-          ...center_center,
+          display: "flex",
+          flexDirection: "column",
+          alignItems: "center",
+          justifyContent: "center",
         }}
       >
         <Typography variant="h3" component="h3" sx={{ color: "white", p: 1 }}>
@@ -69,8 +72,21 @@ const QuestionDetail = () => {
                       <Chip label="未解決" size="small" color="error" />
                     </Stack>
                   </Grid>
-                  <Grid item xs={3} sx={{ p: 3, ...center_center }}>
-                  <Chip avatar={<Avatar>K</Avatar>} label="Kohei" color="secondary"/>
+                  <Grid
+                    item
+                    xs={3}
+                    sx={{
+                      p: 3,
+                      display: "flex",
+                      flexDirection: "column",
+                      alignItems: "flex-end",
+                    }}
+                  >
+                    <Chip
+                      avatar={<Avatar>K</Avatar>}
+                      label="Kohei"
+                      color="secondary"
+                    />
                   </Grid>
                 </Grid>
               </Paper>
@@ -80,7 +96,7 @@ const QuestionDetail = () => {
             {/* Main */}
             <Grid item xs={9}>
               <Paper elevation={4} sx={{ bgcolor: "white", height: 400, p: 3 }}>
-                <Box>Main</Box>
+                <Typography variant="h6"></Typography>
               </Paper>
             </Grid>
             {/* Main end */}
