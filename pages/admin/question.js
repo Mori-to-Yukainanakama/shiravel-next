@@ -1,6 +1,6 @@
 import { FcGenericSortingDesc } from "react-icons/fc"
 import { IconContext } from "react-icons/lib";
-import { UserName } from "./UserName.js";
+import { AnswerBody } from "./AnswerBody";
 
 export default function question() {
     return (
@@ -67,12 +67,8 @@ export default function question() {
 
                     .question__body--box {
                         height: 700px;
-                        padding: 50px;
+                        padding: 40px;
                         overflow: auto;
-                    }
-
-                    .question__body--text {
-                        padding-top: 50px;
                     }
 
                     .question__body--text span {
@@ -105,26 +101,6 @@ export default function question() {
 
                     .question__answer--sort {
                         margin-right: 30px;
-                    }
-
-                    .question__answer--body {
-                        width: 80%;
-                        margin: 0 auto;
-                        border-bottom: 1px solid #4e524e;
-                        padding: 50px;
-                    }
-
-                    .question__answer--user {
-                        height: 30px;
-                        font-size: 14px;
-                        display: flex;
-                        justify-content: flex-end;
-                        padding: 30px;
-                        line-height: 30px;
-                    }
-
-                    .question__answer--text {
-                        padding: 30px;
                     }
                 `}
             </style>
@@ -252,36 +228,7 @@ export default function question() {
                         </IconContext.Provider>
                     </div>
                     {[1,2,3].map((key, value) =>
-                    <div className="question__answer--body" key={key}>
-                        <div className="question__answer--text">
-                            <span>
-                                回答回答回答回答回答回答回答回答回答回答回答回答回答回答回答回答回答回答回答回答回答
-                                回答回答回答回答回答回答回答回答回答回答回答回答回答回答回答回答回答回答回答回答回答
-                                回答回答回答回答回答回答回答回答回答回答回答回答回答回答回答回答回答回答回答回答回答
-                                回答回答回答回答回答回答回答回答回答回答回答回答回答回答回答回答回答回答回答回答回答
-                                回答回答回答回答回答回答回答回答回答回答回答回答回答回答回答回答回答回答回答回答回答
-                                回答回答回答回答回答回答回答回答回答回答回答回答回答回答回答回答回答回答回答回答回答
-                                回答回答回答回答回答回答回答回答回答回答回答回答回答回答回答回答回答回答回答回答回答
-                                回答回答回答回答回答回答回答回答回答回答回答回答回答回答回答回答回答回答回答回答回答
-                                回答回答回答回答回答回答回答回答回答回答回答回答回答回答回答回答回答回答回答回答回答
-                                回答回答回答回答回答回答回答回答回答回答回答回答回答回答回答回答回答回答回答回答回答
-                                回答回答回答回答回答回答回答回答回答回答回答回答回答回答回答回答回答回答回答回答回答
-                                回答回答回答回答回答回答回答回答回答回答回答回答回答回答回答回答回答回答回答回答回答
-                                回答回答回答回答回答回答回答回答回答回答回答回答回答回答回答回答回答回答回答回答回答
-                                回答回答回答回答回答回答回答回答回答回答回答回答回答回答回答回答回答回答回答回答回答
-                                回答回答回答回答回答回答回答回答回答回答回答回答回答回答回答回答回答回答回答回答回答
-                                回答回答回答回答回答回答回答回答回答回答回答回答回答回答回答回答回答回答回答回答回答
-                                回答回答回答回答回答回答回答回答回答回答回答回答回答回答回答回答回答回答回答回答回答
-                                回答回答回答回答回答回答回答回答回答回答回答回答回答回答回答回答回答回答回答回答回答
-                                回答回答回答回答回答回答回答回答回答回答回答回答回答回答回答回答回答回答回答回答回答
-                                回答回答回答回答回答回答回答回答回答回答回答回答回答回答回答回答回答回答回答回答回答
-                            </span>
-                        </div>
-                        <div className="question__answer--user">
-                            <span>投稿 2021/12/18</span>
-                            <UserName width="30px" height="30px" radius="30px" />
-                        </div>
-                    </div>
+                        <AnswerBody key={key} />
                     )}
                 </div>
             </div>

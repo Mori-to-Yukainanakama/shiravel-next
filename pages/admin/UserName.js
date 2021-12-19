@@ -3,14 +3,13 @@ import React, { Fragment } from "react"
 export const UserName = (props) => {
     return (
         <Fragment>
-            <p>{props.width}</p>
             <style jsx>
                 {`
                     .question__answer--userimage {
-                        width: 30px;
-                        height: 30px;
-                        border-radius: 30px;
-                        margin-left: 30px;
+                        width: ${props.size}px;
+                        height: ${props.size}px;
+                        border-radius: ${props.size}px;
+                        margin-left: ${props.size}px;
                     }
                 `}
             </style>
