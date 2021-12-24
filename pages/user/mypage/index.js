@@ -1,14 +1,27 @@
+import Title from "./Title";
+import axios from "axios";
+
 export default () => {
+  //取得API
+  function example() {
+    axios
+      .get("https://jsonplaceholder.typicode.com/users")
+      .then((res) => console.log(res.data))
+      .catch((e) => console.log(e));
+  }
+
   return (
     <div>
       <div className="frame">
         <div className="fixed-items">
           <div className="move-right border-frame">質問</div>
           <div className="move-right border-frame">履歴</div>
-          <div className="border-frame">お気に入り</div>
+          <div className="border-frame" onClick={example}>
+            お気に入り
+          </div>
         </div>
         <h3 className="question-number">質問番号</h3>
-        <h4 className="title">タイトル</h4>
+        <Title title="コンポーネント" />
         <p className="content">質問内容</p>
         <h3 className="question-number">質問番号</h3>
         <h4 className="title">タイトル</h4>
