@@ -6,7 +6,7 @@ const Top = () => {
       <Box
         sx={{
           bgcolor: "primary.dark",
-          p: 6,
+          p: 4,
           textAlign: "center",
           display: "flex",
           flexDirection: "column",
@@ -15,10 +15,10 @@ const Top = () => {
         }}
       >
         <Container>
-          <Typography variant="h3" sx={{ color: "white", p: 1 }}>
+          <Typography variant="h2" sx={{ color: "common.white", p: 2 }}>
             How developers code is here.
           </Typography>
-          <Typography variant="subtitle1" sx={{ color: "white", p: 1 }}>
+          <Typography variant="subtitle1" sx={{ color: "common.white", p: 2 }}>
             Shiravelは、エンジニアに関する知識を記録・共有するためのサービスです。
             <br />
             コードを書いていて気づいたことや、自分がハマったあの仕様について、他のエンジニアと知見を共有しましょう！
