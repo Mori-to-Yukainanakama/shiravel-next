@@ -4,7 +4,7 @@ export default () => {
   };
 
   return (
-    <div>
+    <div className="background">
       <div className="frame">
         <h2 className="title">プロフィール設定</h2>
         <div className="flex">
@@ -21,7 +21,7 @@ export default () => {
         </div>
         <div className="flex">
           <div className="item-place">アイコンを画像変更する</div>
-          <img src="" alt="あああ" className="input-padding" />
+          <img src="https://source.unsplash.com/random/200x200" alt="あああ" className="input-padding" />
           <input type="file" className="input-padding" />
         </div>
         <div className="flex">
@@ -99,6 +99,9 @@ export default () => {
         .submit-btn:hover {
           text-shadow: 0 0 7px #fff, 0 0 7px #fff, 0 0 7px #fff, 0 0 7px #fff,
             0 0 7px #fff, 0 0 7px #fff, 0 0 7px #fff, 0 0 7px #fff;
+        }
+        .background {
+          background-image: url("https://source.unsplash.com/random/2400x2400");
         }
       `}</style>
     </div>

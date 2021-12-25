@@ -6,12 +6,18 @@ export default () => {
   function example() {
     axios
       .get("https://jsonplaceholder.typicode.com/users")
-      .then((res) => console.log(res.data))
-      .catch((e) => console.log(e));
+      .then((res) => {
+        console.log("取得に成功しました");
+        console.log(res);
+      })
+      .catch((e) => {
+        console.log("取得に失敗しました");
+        console.log(e);
+      });
   }
 
   return (
-    <div>
+    <div className="background">
       <div className="frame">
         <div className="fixed-items">
           <div className="move-right border-frame">質問</div>
@@ -56,6 +62,9 @@ export default () => {
         .content {
           margin: 2rem;
           text-align: center;
+        }
+        .background {
+          background-image: url("https://source.unsplash.com/random/2400x2400");
         }
       `}</style>
     </div>
