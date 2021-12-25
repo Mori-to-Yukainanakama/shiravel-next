@@ -4,6 +4,7 @@ import Heading from "../../components/questionDetail/organisms/heading";
 import Main from "../../components/questionDetail/organisms/main";
 import Spacer from "../../components/questionDetail/atoms/spacer";
 import Top from "../../components/questionDetail/organisms/top";
+import Editor from "../../components/questionDetail/molecules/editor";
 
 const theme = createTheme({
   palette: {
@@ -21,7 +22,6 @@ const theme = createTheme({
 });
 
 const QuestionDetail = () => {
-  console.log(theme);
   return (
     <ThemeProvider theme={theme}>
       <Top />
@@ -30,6 +30,8 @@ const QuestionDetail = () => {
           <Heading />
           <Spacer height={20} />
           <Main />
+          <Spacer height={20} />
+          <Editor />
         </Container>
       </Box>
     </ThemeProvider>

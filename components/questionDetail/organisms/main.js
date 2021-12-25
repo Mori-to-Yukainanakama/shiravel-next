@@ -1,6 +1,5 @@
 import { Paper } from "@mui/material";
 import Spacer from "../atoms/spacer";
-import Editor from "../atoms/editor";
 import Comment from "../molecules/comment";
 import MainContent from "../molecules/mainContent";
 
@@ -14,9 +13,6 @@ const Main = () => {
       <MainContent title={"Answer"} isAnswer={"true"} />
       <Spacer height={32} />
       <Comment title={"Answer"} />
-      {/* Editor */}
-      <Editor />
-      {/* Editor end */}
     </Paper>
   );
 };
