@@ -57,7 +57,7 @@ const theme = createTheme({
             text: '#ffffff',
         },
         background: {
-            paper : '#203246',
+            paper: '#203246',
         },
     },
 });
@@ -118,12 +118,14 @@ export default function Users() {
                                 .slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
                                 .map((row) => {
                                     return (
-                                        <TableRow hover role="checkbox" tabIndex={-1} key={row.email}>
+                                        <TableRow key={row.id}>
                                         {columns.map((column) => {
                                             const value = row[column.id];
-                                            const removeIcon = <PersonRemoveIcon style={{
-                                                cursor: 'pointer',
-                                            }}></PersonRemoveIcon>
+                                            const removeIcon = <PersonRemoveIcon
+                                                style={{
+                                                    cursor: 'pointer',
+                                                }}>
+                                            </PersonRemoveIcon>
                                             return (
                                             <TableCell key={column.id} align={column.align}
                                                 sx={{
