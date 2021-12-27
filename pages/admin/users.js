@@ -33,20 +33,20 @@ function createData(name, email, questionNum, answerNum, resolutionNum, deleteBu
 
 const rows = [
     createData('荒井明日香', '123@fox-hound.tech', 10, 3, 2),
-    createData('あらいあすか', '123@fox-hound.tech', 9, 2, 1),
-    createData('アライアスカ', '123@fox-hound.tech', 8, 1, 0),
-    createData('Arai Asuka', '123@fox-hound.tech', 7, 3, 2),
-    createData('あすかあらい', '123@fox-hound.tech', 6, 2, 1),
-    createData('明日香荒井', '123@fox-hound.tech', 5, 1, 0),
-    createData('アスカアライ', '123@fox-hound.tech', 4, 3, 0),
-    createData('アスカアライ', '123@fox-hound.tech', 3, 2, 0),
-    createData('アスカアライ', '123@fox-hound.tech', 2, 1, 0),
-    createData('アスカアライ', '123@fox-hound.tech', 1, 3, 0),
-    createData('アスカアライ', '123@fox-hound.tech', 10, 2, 0),
-    createData('アスカアライ', '123@fox-hound.tech', 9, 1, 0),
-    createData('アスカアライ', '123@fox-hound.tech', 8, 3, 0),
-    createData('アスカアライ', '123@fox-hound.tech', 7, 2, 0),
-    createData('アスカアライ', '123@fox-hound.tech', 6, 1, 0),
+    createData('あらいあすか', '456@fox-hound.tech', 9, 2, 1),
+    createData('アライアスカ', '789@fox-hound.tech', 8, 1, 0),
+    createData('Arai Asuka', '012@fox-hound.tech', 7, 3, 2),
+    createData('あすかあらい', '345@fox-hound.tech', 6, 2, 1),
+    createData('明日香荒井', '678@fox-hound.tech', 5, 1, 0),
+    createData('アスカアライ', '901@fox-hound.tech', 4, 3, 0),
+    createData('アスカアライ', '234@fox-hound.tech', 3, 2, 0),
+    createData('アスカアライ', '567@fox-hound.tech', 2, 1, 0),
+    createData('アスカアライ', '890@fox-hound.tech', 1, 3, 0),
+    createData('アスカアライ', '321@fox-hound.tech', 10, 2, 0),
+    createData('アスカアライ', '654@fox-hound.tech', 9, 1, 0),
+    createData('アスカアライ', '987@fox-hound.tech', 8, 3, 0),
+    createData('アスカアライ', '111@fox-hound.tech', 7, 2, 0),
+    createData('アスカアライ', '222@fox-hound.tech', 6, 1, 0),
 ];
 
 const theme = createTheme({
@@ -118,7 +118,8 @@ export default function Users() {
                                 .slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
                                 .map((row) => {
                                     return (
-                                        <TableRow key={row.id}>
+                                        <TableRow hover role="checkbox" tabIndex={-1} key={row.email}
+                                        sx={{bgcolor: 'primary.light'}}>
                                         {columns.map((column) => {
                                             const value = row[column.id];
                                             const removeIcon = <PersonRemoveIcon
@@ -130,7 +131,6 @@ export default function Users() {
                                             <TableCell key={column.id} align={column.align}
                                                 sx={{
                                                 color: 'primary.text',
-                                                bgcolor: 'primary.light'
                                                 }}>
                                                 {column.id === 'deleteButton'
                                                 ? removeIcon : value}
@@ -144,17 +144,17 @@ export default function Users() {
                         </Table>
                     </TableContainer>
                     <TablePagination
-                    rowsPerPageOptions={[10, 25, 100]}
-                    component="div"
-                    count={rows.length}
-                    rowsPerPage={rowsPerPage}
-                    page={page}
-                    onPageChange={handleChangePage}
-                    onRowsPerPageChange={handleChangeRowsPerPage}
-                    sx={{
-                        color: 'primary.text',
-                        bgcolor: 'primary.main'
-                    }}
+                        rowsPerPageOptions={[10, 25, 100]}
+                        component="div"
+                        count={rows.length}
+                        rowsPerPage={rowsPerPage}
+                        page={page}
+                        onPageChange={handleChangePage}
+                        onRowsPerPageChange={handleChangeRowsPerPage}
+                        sx={{
+                            color: 'primary.text',
+                            bgcolor: 'primary.main'
+                        }}
                     />
                 </Paper>
             </div>
