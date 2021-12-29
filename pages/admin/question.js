@@ -1,6 +1,7 @@
 import { FcGenericSortingDesc } from "react-icons/fc"
 import { IconContext } from "react-icons/lib";
 import { AnswerBody } from "./AnswerBody";
+import { UserName } from "./userName";
 
 export default function question() {
     return (
@@ -10,7 +11,7 @@ export default function question() {
                     .question__meta {
                         width: 100%;
                         height: 200px;
-                        background-color: yellow;
+                        background-color: #e8ede8;
                         padding: 30px;
                         display: flex;
                     }
@@ -62,7 +63,7 @@ export default function question() {
 
                     .question__body {
                         padding-left: 50px;
-                        background-color: #55fffd;
+
                     }
 
                     .question__body--box {
@@ -75,10 +76,6 @@ export default function question() {
                         font-size: 20px;
                         font-weight: bold;
                         border-bottom: solid 1px #4e524e;
-                    }
-
-                    .question__answer {
-                        background-color: #92db8a;
                     }
 
                     .question__answer--box {
@@ -104,7 +101,6 @@ export default function question() {
                     }
                 `}
             </style>
-            <h1>質問詳細画面</h1>
             <div className="question__meta">
                 <div className="question__meta--left">
                     <div className="question__title">
@@ -118,15 +114,14 @@ export default function question() {
                 </div>
                 <div className="question__meta--right">
                     <div className="question__user">
-                        <img className="question__user--image" src="/images/mori.jpeg" />
-                        <span className="question__user--name">モリモリ</span>
+                        <UserName size="60px" />
                     </div>
                 </div>
             </div>
             <div className="question__body">
                 <div className="question__body--box">
                     <p className="question__body--text">
-                        <span>Next.jsが難しいですうううう</span><br />
+                        <p>・質問内容</p>
                         texttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttextttexttexttext
                         exttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttextte
                         texttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttextt

@@ -1,21 +1,23 @@
-import React, { Fragment } from "react"
+import * as React from 'react';
+import Avatar from '@mui/material/Avatar';
+import Stack from '@mui/material/Stack';
+
 
 export const UserName = (props) => {
     return (
-        <Fragment>
+        <div>
             <style jsx>
                 {`
-                    .question__answer--userimage {
-                        width: ${props.size}px;
-                        height: ${props.size}px;
-                        border-radius: ${props.size}px;
-                        margin-left: ${props.size}px;
+                    span {
+                        line-height: ${props.size};
                     }
                 `}
             </style>
-            <img className="question__answer--userimage" src="/images/mori.jpeg" />
-            <span className="question__question--name">モリモリ</span>
-        </Fragment>
+            <Stack direction="row" spacing={2}>
+                <Avatar alt="user-icon" src="/images/mori.jpeg" sx={{ height: props.size, width: props.size}} />
+                <span>モリモリ</span>
+            </Stack>
+        </div>
     )
 }
 

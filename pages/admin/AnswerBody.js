@@ -1,5 +1,10 @@
 import React, { Fragment } from "react"
 import { UserName } from "./userName"
+import Stack from '@mui/material/Stack';
+import Grid from '@mui/material/Grid';
+import Chip from '@mui/material/Chip';
+import FlagIcon from '@mui/icons-material/Flag';
+import Box from '@mui/material/Box';
 
 export const AnswerBody = () => {
     return (
@@ -25,38 +30,36 @@ export const AnswerBody = () => {
                     .question__answer--text {
                         padding: 30px;
                     }
+
+                    .question__answer--date {
+                        padding-right: 30px;
+                    }
                 `}
             </style>
-            <div className="question__answer--body">
-                <div className="question__answer--text">
+            <Box sx={{ padding: "30px 50px" }}>
+                <Grid container item xs={12}>
                     <span>
-                        回答回答回答回答回答回答回答回答回答回答回答回答回答回答回答回答回答回答回答回答回答
-                        回答回答回答回答回答回答回答回答回答回答回答回答回答回答回答回答回答回答回答回答回答
-                        回答回答回答回答回答回答回答回答回答回答回答回答回答回答回答回答回答回答回答回答回答
-                        回答回答回答回答回答回答回答回答回答回答回答回答回答回答回答回答回答回答回答回答回答
-                        回答回答回答回答回答回答回答回答回答回答回答回答回答回答回答回答回答回答回答回答回答
-                        回答回答回答回答回答回答回答回答回答回答回答回答回答回答回答回答回答回答回答回答回答
-                        回答回答回答回答回答回答回答回答回答回答回答回答回答回答回答回答回答回答回答回答回答
-                        回答回答回答回答回答回答回答回答回答回答回答回答回答回答回答回答回答回答回答回答回答
-                        回答回答回答回答回答回答回答回答回答回答回答回答回答回答回答回答回答回答回答回答回答
-                        回答回答回答回答回答回答回答回答回答回答回答回答回答回答回答回答回答回答回答回答回答
-                        回答回答回答回答回答回答回答回答回答回答回答回答回答回答回答回答回答回答回答回答回答
-                        回答回答回答回答回答回答回答回答回答回答回答回答回答回答回答回答回答回答回答回答回答
-                        回答回答回答回答回答回答回答回答回答回答回答回答回答回答回答回答回答回答回答回答回答
-                        回答回答回答回答回答回答回答回答回答回答回答回答回答回答回答回答回答回答回答回答回答
-                        回答回答回答回答回答回答回答回答回答回答回答回答回答回答回答回答回答回答回答回答回答
-                        回答回答回答回答回答回答回答回答回答回答回答回答回答回答回答回答回答回答回答回答回答
-                        回答回答回答回答回答回答回答回答回答回答回答回答回答回答回答回答回答回答回答回答回答
-                        回答回答回答回答回答回答回答回答回答回答回答回答回答回答回答回答回答回答回答回答回答
-                        回答回答回答回答回答回答回答回答回答回答回答回答回答回答回答回答回答回答回答回答回答
-                        回答回答回答回答回答回答回答回答回答回答回答回答回答回答回答回答回答回答回答回答回答
+                        texttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttext
+                        texttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttext
+                        texttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttext
+                        texttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttext
+                        texttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttext
+                        texttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttext
+                        texttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttext
+                        texttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttext
+                        texttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttext
+                        texttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttext
+                        texttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttext
+                        texttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttext
+                        texttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttext
+                        texttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttext
                     </span>
-                </div>
-                <div className="question__answer--user">
-                    <span>投稿 2021/12/18</span>
-                    <UserName size="30" />
-                </div>
-            </div>
+                </Grid>
+                <Grid sx={{ marginTop: "30px" }} container item xs={12} justifyContent="flex-end" alignItems="center">
+                    <span className="question__answer--date">2021/12/21</span>
+                    <UserName size="30px" />
+                </Grid>
+            </Box>
         </Fragment>
     )
 }
