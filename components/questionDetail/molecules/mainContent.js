@@ -1,5 +1,4 @@
 import { Avatar, Box, Typography } from "@mui/material";
-import { deepPurple } from "@mui/material/colors";
 import Borderline from "../atoms/borderline";
 import Spacer from "../atoms/spacer";
 
