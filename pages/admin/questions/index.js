@@ -3,19 +3,19 @@ import Link from "next/link";
 // import Button from "@mui/material/Button"
 
 export default () => {
-  //   //一覧取得API
-  //   function example() {
-  //     axios
-  //       .get("https://jsonplaceholder.typicode.com/users")
-  //       .then((res) => {
-  //         console.log("取得に成功しました");
-  //         console.log(res);
-  //       })
-  //       .catch((e) => {
-  //         console.log("取得に失敗しました");
-  //         console.log(e);
-  //       });
-  //   }
+  //一覧取得API
+  function example() {
+    axios
+      .get("https://jsonplaceholder.typicode.com/users")
+      .then((res) => {
+        console.log("取得に成功しました");
+        console.log(res);
+      })
+      .catch((e) => {
+        console.log("取得に失敗しました");
+        console.log(e);
+      });
+  }
 
   const datas = [
     {
@@ -53,12 +53,12 @@ export default () => {
       <table border="2" className="table-size">
         <thead>
           <tr>
-            <th className="flex-items">タイトル</th>
-            <th className="flex-items">ユーザー名</th>
-            <th className="flex-items">回答ステータス</th>
-            <th className="flex-items">解決ステータス</th>
-            <th className="flex-items">投稿日時</th>
-            <th className="flex-items"></th>
+            <th>タイトル</th>
+            <th>ユーザー名</th>
+            <th>回答ステータス</th>
+            <th>解決ステータス</th>
+            <th>投稿日時</th>
+            <th></th>
           </tr>
         </thead>
         <tbody>
@@ -80,7 +80,7 @@ export default () => {
           })}
         </tbody>
       </table>
-      <p style={{color: 'red'}}>ページネーション追加予定</p>
+      <p style={{ color: "red" }}>ページネーション追加予定</p>
       <style jsx>{`
         .screen {
           margin: 8rem 12rem;
