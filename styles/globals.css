@@ -87,7 +87,10 @@ video {
 }
 
 body {
-  line-height: 1;
+/*   上野君コード */
+/*   line-height: 1; */
+  
+  line-height:2rem;
 }
 
 article,
