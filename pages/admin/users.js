@@ -52,12 +52,12 @@ const rows = [
 const theme = createTheme({
     palette: {
         primary: {
-            main: '#203246',
-            light: '#222734',
+            main: '#180E3B',
+            light: '#050017',
             text: '#ffffff',
         },
         background: {
-            paper: '#203246',
+            paper: '#180E3B',
         },
     },
 });
@@ -76,17 +76,16 @@ export default function Users() {
     };
     return (
         <ThemeProvider theme={theme}>
-            <div style={{backgroundColor: '#203246'}}>
+            <div style={{backgroundColor: '#180E3B'}}>
                 <Box
                     sx={{
-                    width: '90%',
+                    width: '100%',
                     height: 100,
                     mx: 'auto',
-                    bgcolor: 'text.disabled',
+                    bgcolor: '#050017',
                     color: 'primary.text',
                     }}
                 >
-                    <p>Header</p>
                 </Box>
                 <Paper
                     sx={{
