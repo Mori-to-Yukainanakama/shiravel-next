@@ -6,6 +6,9 @@ const SimpleMDE = dynamic(() => import('react-simplemde-editor'), { ssr: false})
 import { marked } from 'marked';
 import Button from '@mui/material/Button';
 
+// 上野くんがglobal.cssに当てたスタイリングを一旦componentだけのものに移し替えた（影響範囲が広すぎるため）
+// module.cssではタグ名でのスタイリングはできない模様（クラス名で当てるようにする修正が必要）
+// import styles from "../../../styles/Input.module.css"
 
 export default function Input() {
 
