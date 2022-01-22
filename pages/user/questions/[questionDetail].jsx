@@ -9,14 +9,14 @@ import Editor from "../../../components/QuestionDetail/Molecules/Editor";
 const theme = createTheme({
   palette: {
     primary: {
-      main: "#4A148C",
-      light: "#7c43bd",
-      dark: "#12005e",
+      main: "#180e3b",
+      light: "#433466",
+      dark: "#000017",
     },
     secondary: {
-      main: "#c51162",
-      light: "#fd558f",
-      dark: "#8e0038",
+      main: "#ffa435",
+      light: "#ffd566",
+      dark: "#c77500",
     },
   },
 });
