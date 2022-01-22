@@ -1,7 +1,7 @@
 import { Box, Typography } from "@mui/material";
-import Borderline from "../atoms/borderline";
-import Spacer from "../atoms/spacer";
-import CommentedUser from "./commentedUser";
+import Borderline from "../Atoms/Borderline";
+import Spacer from "../Atoms/Spacer";
+import CommentedUser from "./CommentedUser";
 
 const Comment = ({ title }) => {
   return (

@@ -1,10 +1,10 @@
 import { Box, Container, createTheme } from "@mui/material";
 import { ThemeProvider } from "@mui/system";
-import Heading from "../../components/questionDetail/organisms/heading";
-import Main from "../../components/questionDetail/organisms/main";
-import Spacer from "../../components/questionDetail/atoms/spacer";
-import Top from "../../components/questionDetail/organisms/top";
-import Editor from "../../components/questionDetail/molecules/editor";
+import Heading from "../../../components/QuestionDetail/Organisms/Heading";
+import Main from "../../../components/QuestionDetail/Organisms/Main";
+import Spacer from "../../../components/QuestionDetail/Atoms/Spacer";
+import Top from "../../../components/QuestionDetail/Organisms/Top";
+import Editor from "../../../components/QuestionDetail/Molecules/Editor";
 
 const theme = createTheme({
   palette: {

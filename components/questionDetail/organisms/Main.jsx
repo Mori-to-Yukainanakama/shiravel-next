@@ -1,7 +1,7 @@
 import { Paper } from "@mui/material";
-import Spacer from "../atoms/spacer";
-import Comment from "../molecules/comment";
-import MainContent from "../molecules/mainContent";
+import Spacer from "../Atoms/Spacer";
+import Comment from "../Molecules/Comment";
+import MainContent from "../Molecules/MainContent";
 
 const Main = () => {
   return (

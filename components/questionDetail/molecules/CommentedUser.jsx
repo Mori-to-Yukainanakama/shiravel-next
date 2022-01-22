@@ -1,6 +1,6 @@
 import { Avatar, Box, Typography } from "@mui/material";
 import { deepOrange } from "@mui/material/colors";
-import Spacer from "../atoms/spacer";
+import Spacer from "../Atoms/Spacer";
 
 const CommentedUser = () => {
   return (
