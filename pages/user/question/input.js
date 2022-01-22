@@ -7,7 +7,7 @@ import { marked } from 'marked';
 import Button from '@mui/material/Button';
 
 
-export default function input() {
+export default function Input() {
 
     // state
     const [markdownValue, setMarkdownValue] = useState("");
@@ -65,7 +65,7 @@ export default function input() {
                 <title>質問投稿画面｜Shiravel（シラベル）</title>
                 </Head>
                 <body>
-                    <input　id="question-title" type="" placeholder='タイトル：わからないこと、解決したいことを10文字以上で書いてください' ></input>
+                    <input id="question-title" type="" placeholder='タイトル：わからないこと、解決したいことを10文字以上で書いてください' ></input>
                     <div className="question">
                         <div id="editor">
                             <SimpleMDE value={markdownValue}  onChange={onChange} options={{ 
