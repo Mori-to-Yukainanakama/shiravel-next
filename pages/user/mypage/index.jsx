@@ -1,7 +1,7 @@
-import Title from "./Title";
+import Title from "../../../components/MyPage/Title";
 import axios from "axios";
 
-export default () => {
+export default function MyPage() {
   //取得API
   function example() {
     axios

@@ -1,6 +1,6 @@
 import { Avatar, Box, Typography } from "@mui/material";
-import Borderline from "../atoms/borderline";
-import Spacer from "../atoms/spacer";
+import Borderline from "../Atoms/Borderline";
+import Spacer from "../Atoms/Spacer";
 
 const MainContent = ({ title, isAnswer = false }) => {
   return (

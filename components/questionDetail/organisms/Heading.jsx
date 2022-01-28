@@ -1,6 +1,6 @@
 import { Avatar, Chip, Grid, Paper, Stack, Typography } from "@mui/material";
 import { deepPurple } from "@mui/material/colors";
-import Spacer from "../atoms/spacer";
+import Spacer from "../Atoms/Spacer";
 
 const Heading = () => {
   return (
