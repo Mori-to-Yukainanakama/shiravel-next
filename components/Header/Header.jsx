@@ -2,7 +2,7 @@ import { Box, Container, Typography } from "@mui/material";
 
 const Top = () => {
   return (
-    <>
+    <header>
       <Box
         sx={{
           bgcolor: "primary.dark",
@@ -25,7 +25,7 @@ const Top = () => {
           </Typography>
         </Container>
       </Box>
-    </>
+    </header>
   );
 };
 
