@@ -6,7 +6,6 @@ import Editor from "../../../components/Molecules/Editor";
 
 const QuestionDetail = () => {
   return (
-
       <Box sx={{ bgcolor: "primary.main", py: 8 }}>
         <Container>
           <Heading />

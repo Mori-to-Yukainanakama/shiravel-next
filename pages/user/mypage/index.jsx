@@ -1,4 +1,4 @@
-import Title from "../../../components/MyPage/Title";
+import Title from "../../../components/Atoms/Title";
 import axios from "axios";
 
 export default function MyPage() {

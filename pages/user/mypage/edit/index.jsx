@@ -1,5 +1,3 @@
-import Image from "next/image";
-
 export default function EditMyPage() {
   let buttonAlert = () => {
     alert("Clicked!");
@@ -23,7 +21,7 @@ export default function EditMyPage() {
         </div>
         <div className="flex">
           <div className="item-place">アイコンを画像変更する</div>
-          <Image
+          <img
             src="https://source.unsplash.com/random/200x200"
             alt="あああ"
             className="input-padding"

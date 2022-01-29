@@ -1,8 +1,8 @@
 import * as React from "react";
 import Box from "@mui/material/Box";
 import Grid from "@mui/material/Grid";
-import PageTitle from "../../../components/QuestionList/Atoms/PageTitle";
-import LabTabs from "../../../components/QuestionList/Organisms/LabTabs";
+import PageTitle from "../../../components/Atoms/PageTitle";
+import LabTabs from "../../../components/Organisms/LabTabs";
 
 export default function QuestionList() {
   return (
