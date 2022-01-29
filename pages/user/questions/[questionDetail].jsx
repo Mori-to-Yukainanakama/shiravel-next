@@ -1,8 +1,8 @@
 import { Box, Container } from "@mui/material";
-import Heading from "../../../components/QuestionDetail/Organisms/Heading";
-import Main from "../../../components/QuestionDetail/Organisms/Main";
-import Spacer from "../../../components/QuestionDetail/Atoms/Spacer";
-import Editor from "../../../components/QuestionDetail/Molecules/Editor";
+import Heading from "../../../components/Organisms/Heading";
+import DetailMain from "../../../components/Organisms/DetailMain";
+import Spacer from "../../../components/Atoms/Spacer";
+import Editor from "../../../components/Molecules/Editor";
 
 const QuestionDetail = () => {
   return (
@@ -11,7 +11,7 @@ const QuestionDetail = () => {
         <Container>
           <Heading />
           <Spacer height={20} />
-          <Main />
+          <DetailMain />
           <Spacer height={20} />
           <Editor />
         </Container>
