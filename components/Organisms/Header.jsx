@@ -1,8 +1,8 @@
 import { Box, Container, Typography } from "@mui/material";
 
-const Top = () => {
+const Header = () => {
   return (
-    <>
+    <header>
       <Box
         sx={{
           bgcolor: "primary.dark",
@@ -12,6 +12,8 @@ const Top = () => {
           flexDirection: "column",
           alignItems: "center",
           justifyContent: "center",
+          borderBottom: 4,
+          borderColor: "secondary.main"
         }}
       >
         <Container>
@@ -25,8 +27,8 @@ const Top = () => {
           </Typography>
         </Container>
       </Box>
-    </>
+    </header>
   );
 };
 
-export default Top;
+export default Header;
