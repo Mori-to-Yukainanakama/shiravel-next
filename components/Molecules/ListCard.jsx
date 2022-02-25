@@ -30,15 +30,14 @@ const Date = (date) => {
 export default function ListCard(props) {
   return (
     <>
+    <Link href="/user/questions/question" passHref>
       <CardContent sx={cardStyle}>
         <Typography
           variant="button"
           component="div"
           sx={{fontSize: "40px"}}
         >
-          <Link href="#">
-            {props.question.title}
-          </Link>
+          {props.question.title}
         </Typography>
         <Box
           sx={{
@@ -61,6 +60,7 @@ export default function ListCard(props) {
           </Typography>
         </Box>
       </CardContent>
+      </Link>
       <Spacer width={100} height={20} />
     </>
   )
