@@ -1,14 +1,17 @@
-import {
-  Box,
-  Button,
-  FormControl,
-  Paper,
-  TextField,
-  Typography,
-} from "@mui/material";
+import { Box, Button, Paper, TextField, Typography } from "@mui/material";
 import Spacer from "../../components/Atoms/Spacer";
+import { useForm, Controller } from "react-hook-form";
+import { ErrorMessage } from "@hookform/error-message";
 
 export default function Login() {
+  const {
+    handleSubmit,
+    control,
+    formState: { errors },
+  } = useForm();
+
+  const onSubmit = (data) => console.log(JSON.stringify(data));
+
   return (
     <Box
       sx={{
@@ -34,30 +37,77 @@ export default function Login() {
         <Paper
           elevation={4}
           sx={{
+            minWidth: 500,
             bgcolor: "common.white",
             px: 12,
-            pt: 6,
-            pb: 8,
+            py: 8,
             borderRadius: "16px",
           }}
         >
-          <Spacer height={16} />
-          <FormControl>
-            {/* autoComplete="email"を追加する */}
-            <TextField label="Email" type="email" color="primary" />
-            <Spacer height={16} />
-            <TextField
-              label="Password"
-              type="password"
-              autoComplete="current-password"
-              color="primary"
-            />
-            <Spacer height={24} />
-            {/* type="submit"を追加する */}
-            <Button color="success" variant="contained">
-              ログイン
-            </Button>
-          </FormControl>
+          <form onSubmit={handleSubmit(onSubmit)}>
+            <Box sx={{ display: "flex", flexDirection: "column" }}>
+              <Controller
+                name="email"
+                control={control}
+                render={({ field }) => <TextField {...field} label="email" />}
+                defaultValue=""
+                rules={{
+                  required: { value: true, message: "※必須項目です" },
+                  pattern: {
+                    value:
+                      /^[a-zA-Z0-9_+-]+(.[a-zA-Z0-9_+-]+)*@([a-zA-Z0-9][a-zA-Z0-9-]*[a-zA-Z0-9]*\.)+[a-zA-Z]{2,}$/,
+                    message: "※メールアドレスを正しく入力してください",
+                  },
+                }}
+              />
+              <ErrorMessage
+                errors={errors}
+                name="email"
+                render={({ message }) => (
+                  <Typography variant="subtitle2" color={"error"} sx={{ p: 0.6 }}>
+                    {message}
+                  </Typography>
+                )}
+              />
+              <Spacer height={20} />
+              <Controller
+                name="password"
+                control={control}
+                render={({ field }) => (
+                  <TextField {...field} label="password" />
+                )}
+                defaultValue=""
+                rules={{
+                  required: { value: true, message: "※必須項目です" },
+                  minLength: {
+                    value: 8,
+                    message: "※8文字以上で入力してください",
+                  },
+                  maxLength: {
+                    value: 100,
+                    message: "※100文字以下で入力してください",
+                  },
+                  pattern: {
+                    value: /^(?=.*?[a-z])(?=.*?\d)[a-z\d]{8,100}$/,
+                    message: "※パスワードを正しく入力してください",
+                  },
+                }}
+              />
+              <ErrorMessage
+                errors={errors}
+                name="password"
+                render={({ message }) => (
+                  <Typography variant="subtitle2" color={"error"} sx={{ p: 0.6 }}>
+                    {message}
+                  </Typography>
+                )}
+              />
+              <Spacer height={24} />
+              <Button color="success" type="submit" variant="contained" size="large">
+                ログイン
+              </Button>
+            </Box>
+          </form>
         </Paper>
       </Box>
     </Box>
