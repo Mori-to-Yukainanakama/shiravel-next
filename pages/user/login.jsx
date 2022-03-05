@@ -2,6 +2,7 @@ import { Box, Button, Paper, TextField, Typography } from "@mui/material";
 import Spacer from "../../components/Atoms/Spacer";
 import { useForm, Controller } from "react-hook-form";
 import { ErrorMessage } from "@hookform/error-message";
+import axios from "axios";
 
 export default function Login() {
   const {
@@ -10,8 +11,24 @@ export default function Login() {
     formState: { errors },
   } = useForm();
 
-  const onSubmit = (data) => console.log(JSON.stringify(data));
-
+  const onSubmit = (values) => {
+    axios
+      .get("http://localhost:8000/sanctum/csrf-cookie", {
+        withCredentials: true,
+      })
+      .then(() => {
+        axios
+          .post("http://localhost:8000/login", values, {
+            withCredentials: true,
+          })
+          .then((res) => {
+            console.log(res.data);
+          })
+          .catch((err) => {
+            console.log(err.data);
+          });
+      });
+  };
   return (
     <Box
       sx={{
@@ -64,7 +81,11 @@ export default function Login() {
                 errors={errors}
                 name="email"
                 render={({ message }) => (
-                  <Typography variant="subtitle2" color={"error"} sx={{ p: 0.6 }}>
+                  <Typography
+                    variant="subtitle2"
+                    color={"error"}
+                    sx={{ p: 0.6 }}
+                  >
                     {message}
                   </Typography>
                 )}
@@ -79,31 +100,40 @@ export default function Login() {
                 defaultValue=""
                 rules={{
                   required: { value: true, message: "※必須項目です" },
-                  minLength: {
-                    value: 8,
-                    message: "※8文字以上で入力してください",
-                  },
-                  maxLength: {
-                    value: 100,
-                    message: "※100文字以下で入力してください",
-                  },
-                  pattern: {
-                    value: /^(?=.*?[a-z])(?=.*?\d)[a-z\d]{8,100}$/,
-                    message: "※パスワードを正しく入力してください",
-                  },
+                  // minLength: {
+                  //   value: 8,
+                  //   message: "※8文字以上で入力してください",
+                  // },
+                  // maxLength: {
+                  //   value: 100,
+                  //   message: "※100文字以下で入力してください",
+                  // },
+                  // pattern: {
+                  //   value: /^(?=.*?[a-z])(?=.*?\d)[a-z\d]{8,100}$/,
+                  //   message: "※パスワードを正しく入力してください",
+                  // },
                 }}
               />
               <ErrorMessage
                 errors={errors}
                 name="password"
                 render={({ message }) => (
-                  <Typography variant="subtitle2" color={"error"} sx={{ p: 0.6 }}>
+                  <Typography
+                    variant="subtitle2"
+                    color={"error"}
+                    sx={{ p: 0.6 }}
+                  >
                     {message}
                   </Typography>
                 )}
               />
               <Spacer height={24} />
-              <Button color="success" type="submit" variant="contained" size="large">
+              <Button
+                color="success"
+                type="submit"
+                variant="contained"
+                size="large"
+              >
                 ログイン
               </Button>
             </Box>
