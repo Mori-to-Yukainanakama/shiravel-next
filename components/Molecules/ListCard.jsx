@@ -28,9 +28,10 @@ const Date = (date) => {
 };
 
 export default function ListCard(props) {
+
   return (
     <>
-    <Link href="/user/questions/question" passHref>
+    <Link href={`/user/questions/${props.question.question_id}`} passHref>
       <CardContent sx={cardStyle}>
         <Typography
           variant="button"

@@ -1,64 +1,36 @@
 import { Avatar, Box, Typography } from "@mui/material";
 import Borderline from "../Atoms/Borderline";
 import Spacer from "../Atoms/Spacer";
+import moment from "moment";
+import SolidBorderLine from "../Atoms/SolidBorderline";
 
-const MainContent = ({ title, isAnswer = false }) => {
+
+const MainContent = ({ isAnswered = false, content, answerCreatedAt, answerUserName, title }) => {
+
+
+  const Date = (date) => {
+    return moment(date).format('YYYY-MM-DD');
+  };
+
   return (
     <Box>
-      <Typography variant="h5">{title} Heading</Typography>
-      <Spacer height={12} />
-      <Borderline />
+      <Spacer height={24} />
+      <Typography
+        variant="h4"
+        component="h4"
+        gutterBottom
+        sx={{
+          color: "#cf8807",
+          textShadow: "2px 0 #9ba0ab",
+        }}
+      >
+        {title}
+      </Typography>
+      <SolidBorderLine />
       <Spacer height={24} />
       <Box sx={{ px: 2 }}>
-        <p>
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Odio fugiat
-          sunt quidem, sed sit quasi? Consequatur, odio debitis eveniet quam et,
-          dignissimos dolore, rem omnis necessitatibus eum reiciendis doloribus
-          architecto!
-        </p>
-        <p>
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Odio fugiat
-          sunt quidem, sed sit quasi? Consequatur, odio debitis eveniet quam et,
-          dignissimos dolore, rem omnis necessitatibus eum reiciendis doloribus
-          architecto!
-        </p>
-        <p>
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Odio fugiat
-          sunt quidem, sed sit quasi? Consequatur, odio debitis eveniet quam et,
-          dignissimos dolore, rem omnis necessitatibus eum reiciendis doloribus
-          architecto!
-        </p>
-        <p>
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Odio fugiat
-          sunt quidem, sed sit quasi? Consequatur, odio debitis eveniet quam et,
-          dignissimos dolore, rem omnis necessitatibus eum reiciendis doloribus
-          architecto!
-        </p>
-        <p>
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Odio fugiat
-          sunt quidem, sed sit quasi? Consequatur, odio debitis eveniet quam et,
-          dignissimos dolore, rem omnis necessitatibus eum reiciendis doloribus
-          architecto!
-        </p>
-        <p>
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Odio fugiat
-          sunt quidem, sed sit quasi? Consequatur, odio debitis eveniet quam et,
-          dignissimos dolore, rem omnis necessitatibus eum reiciendis doloribus
-          architecto!
-        </p>
-        <p>
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Odio fugiat
-          sunt quidem, sed sit quasi? Consequatur, odio debitis eveniet quam et,
-          dignissimos dolore, rem omnis necessitatibus eum reiciendis doloribus
-          architecto!
-        </p>
-        <p>
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Odio fugiat
-          sunt quidem, sed sit quasi? Consequatur, odio debitis eveniet quam et,
-          dignissimos dolore, rem omnis necessitatibus eum reiciendis doloribus
-          architecto!
-        </p>
-        {isAnswer && (
+        {content}
+        {isAnswered && (
           <>
             <Spacer height={12} />
             <Box
@@ -69,11 +41,8 @@ const MainContent = ({ title, isAnswer = false }) => {
               }}
             >
               <Typography variant="caption">
-                投稿日：2021/12/25 12:25
-              </Typography>
-              <Spacer width={16} />
-              <Typography variant="caption">
-                更新日：2021/12/27 12:25
+                {/* 投稿日 */}
+                {Date(answerCreatedAt)}
               </Typography>
               <Spacer width={24} />
               <Avatar
@@ -85,7 +54,7 @@ const MainContent = ({ title, isAnswer = false }) => {
                   fontSize: "1.1rem",
                 }}
               >
-                K
+                {answerUserName}
               </Avatar>
             </Box>
           </>
