@@ -1,4 +1,4 @@
-import Head from "next/head";   
+import Head from "next/head";
 import React, { useState } from "react";
 import 'easymde/dist/easymde.min.css';
 import dynamic from 'next/dynamic';
@@ -60,7 +60,7 @@ export default function Input() {
     //       .replace(/<p><a[^>]*?href="(https?:\/\/[-_.!~*\'()a-zA-Z0-9;\/?:\@&=+\$,%#]+)"[^>]*?>(https?:\/\/[-_.!~*\'()a-zA-Z0-9;\/?:\@&=+\$,%#]+)<\/a><\/p>/g,"\n$2\n")
     //   }
 
-    
+
     return (
         <>
             <div>
@@ -71,7 +71,7 @@ export default function Input() {
                     <input id="question-title" type="" placeholder='タイトル：わからないこと、解決したいことを10文字以上で書いてください' ></input>
                     <div className="question">
                         <div id="editor">
-                            <SimpleMDE value={markdownValue}  onChange={onChange} options={{ 
+                            <SimpleMDE value={markdownValue}  onChange={onChange} options={{
                                 maxHeight: "697px",
                                 autofocus:true,
                                 insertTexts: {
@@ -82,13 +82,13 @@ export default function Input() {
                                 },
                                 styleSelectedText:true,
                                 forceSync:false,
-                                spellChecker:false, 
+                                spellChecker:false,
                                 breaks:true,
                                 xhtml:true,
                                 status:true,
                                 toolbar:toolbar,
                                 lineWrapping:true,
-                                }}  
+                                }}
                             />
                         </div>
                         <div id="preview-area">
@@ -99,7 +99,6 @@ export default function Input() {
                                 <div dangerouslySetInnerHTML={{ __html: marked(markdownValue)}}/>
                             </div>
                         </div>
-                        
                     </div>
                     <footer>
                         <span id="doQuestion">
@@ -108,9 +107,7 @@ export default function Input() {
                     </footer>
                 </body>
             </div>
-            
             <style jsx>{`
-                
                     html {
                         height:100%;
                     }
@@ -118,7 +115,6 @@ export default function Input() {
                     body {
                         height:100%;
                     }
-                    
                     .question {
                         position:fixed;
                         display:flex;
@@ -152,7 +148,6 @@ export default function Input() {
                         overflow: scroll;
                         word-break: break-all;
                     }
-                    
                     #preview-area {
                         width:50%;
                         height:768px;
@@ -189,6 +184,5 @@ export default function Input() {
 
             `}</style>
         </>
-        
     )
 }

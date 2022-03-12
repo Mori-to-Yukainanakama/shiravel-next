@@ -18,6 +18,7 @@ const theme = createTheme({
   },
 });
 
+
 function MyApp({ Component, pageProps }) {
   const router = useRouter();
   const { pathname } = router;
