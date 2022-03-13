@@ -1,23 +1,27 @@
 import axios from "axios";
-import { useContext, useMemo, useState } from "react";
+import { useContext, useEffect } from "react";
 
-import { CommonContext } from "/providers/CommonProvider";
 import ExecuteButton from "/components/Atoms/ExecuteButton";
+// プロバイダー
+import { CommonContext } from "/providers/CommonProvider";
+import { CreateQuestionContext } from "/providers/CreateQuestionProvider";
 
 function SendButton(props) {
   const { baseUrl } = useContext(CommonContext);
+  const { title, markdownValue } = useContext(CreateQuestionContext);
 
-  const [sendState, setSendState] = useState(false);
-
+  /**
+   * 質問の投稿
+   */
   function createQuestion() {
     const data = {
-      user_id: props.id,
-      title: props.title,
-      content: props.content,
+      // user_id: props.id,
+      title: title,
+      content: markdownValue,
     };
 
     axios
-      .post(baseUrl + "/api/v1/create/questions", data)
+      .post("http://localhost:8000/api/v1/create/questions", data)
       .then((res) => {
         console.log(res);
         console.log("投稿しました");
@@ -27,12 +31,10 @@ function SendButton(props) {
       });
   }
 
-  const createQuestionMemo = useMemo(() => createQuestion(), []);
-
   return (
     <>
       <div className="btn-area">
-        <ExecuteButton action={() => setSendState(true)} margin={"0.5rem 1rem"}>
+        <ExecuteButton action={createQuestion} margin={"0.5rem 1rem"}>
           {props.text}
         </ExecuteButton>
       </div>

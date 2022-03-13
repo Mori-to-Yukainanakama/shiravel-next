@@ -15,7 +15,7 @@ export default function ExecuteButton(props) {
 
   return (
     <>
-      <button className={"btn"} onClick={() => props.action}>
+      <button className={"btn"} onClick={() => props.action()}>
         {btnText}
       </button>
 

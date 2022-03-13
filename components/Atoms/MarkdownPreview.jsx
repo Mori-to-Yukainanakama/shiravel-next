@@ -1,10 +1,10 @@
 import { useContext } from "react";
 import { Box } from "@mui/material";
 import ReactMarkdown from "react-markdown";
-import { MarkdownContext } from "/providers/MarkdownProvider";
+import { CreateQuestionContext } from "/providers/CreateQuestionProvider";
 
 function MarkdownPreview() {
-  const { markdownValue } = useContext(MarkdownContext);
+  const { markdownValue } = useContext(CreateQuestionContext);
 
   return (
     <>

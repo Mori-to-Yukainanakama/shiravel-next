@@ -2,13 +2,10 @@ export function TextArea(props) {
   // カスタムスタイル
   const width = props.width || "100%";
   const height = props.height || "100%";
-  // const minWidth = props.minWidth || "400px";
   const minHeight = props.minHeight || "400px";
-  const border = props.border || "border-main2 border-solid border-2";
-  const focusBgColor = props.focusBgColor || "focus:bg-sub2";
 
   // 文字数分の幅
-  const cols = props.cols || "1000";
+  const cols = props.cols || "100";
   // 行数
   const rows = props.rows || "20";
 

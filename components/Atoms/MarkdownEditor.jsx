@@ -1,10 +1,10 @@
 import { useContext } from "react";
 import { Box, Paper } from "@mui/material";
-import { MarkdownContext } from "/providers/MarkdownProvider";
-import { TextArea } from "/components/Atoms/FormParts/TextArea";
+import { CreateQuestionContext } from "/providers/CreateQuestionProvider";
+import { TextArea } from "/components/Atoms/TextArea";
 
 function MarkdownEditor() {
-  const { markdownValue, setMarkdownValue } = useContext(MarkdownContext);
+  const { markdownValue, setMarkdownValue } = useContext(CreateQuestionContext);
 
   return (
     <Box

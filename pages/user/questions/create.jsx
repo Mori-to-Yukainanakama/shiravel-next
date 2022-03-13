@@ -1,15 +1,16 @@
-import { useEffect, useContext } from "react";
 import { Paper } from "@mui/material";
-import MarkdownEditor from "../../../components/Atoms/MarkdownEditor";
-import SendButton from "../../../components/Atoms/FormParts/SendButton";
-import MarkdownPreview from "../../../components/Atoms/MarkdownPreview";
+import PostTitle from "/components/Molecules/PostTitle";
+import MarkdownEditor from "/components/Atoms/MarkdownEditor";
+import MarkdownPreview from "/components/Atoms/MarkdownPreview";
+import PostQuestionButton from "/components/Molecules/PostQuestionButton";
 
-import { MarkdownProvider } from "../../../providers/MarkdownProvider";
+import { CreateQuestionProvider } from "/providers/CreateQuestionProvider";
 
 export default function create() {
   return (
     <>
-      <MarkdownProvider>
+      <CreateQuestionProvider>
+        <PostTitle />
         <Paper sx={{ px: 6, py: 6, display: "flex" }}>
           <div className="editor">
             <MarkdownEditor />
@@ -21,8 +22,8 @@ export default function create() {
             </div>
           </div>
         </Paper>
-        <SendButton text={"投稿する"} />
-      </MarkdownProvider>
+        <PostQuestionButton text={"投稿する"} />
+      </CreateQuestionProvider>
 
       <style jsx>{`
         .markdown-area {
