@@ -1,19 +1,33 @@
 import { Avatar, Chip, Grid, Paper, Stack, Typography } from "@mui/material";
 import { deepPurple } from "@mui/material/colors";
 import Spacer from "../Atoms/Spacer";
+import moment from "moment";
+import { useState } from "react";
 
-const Heading = () => {
+const Heading = (props) => {
+
+  const [isSolved, setIsSolved] = useState("未解決");
+  const [isAnswered, setIsAnswered] = useState("回答済");
+
+  const Date = (date) => {
+    return moment(date).format('YYYY-MM-DD');
+  };
+
+
+
   return (
     <Paper elevation={4} sx={{ bgcolor: "background.paper" }}>
       <Grid container>
         <Grid item xs={10} sx={{ px: 6, py: 4 }}>
           <Stack spacing={2} direction={"row"}>
-            <Typography variant="caption">投稿日：2021/12/25 12:25</Typography>
-            <Typography variant="caption">更新日：2021/12/27 12:27</Typography>
+            <Typography variant="caption">
+              {/* 投稿日 */}
+              {Date(props.createdAt)}
+            </Typography>
           </Stack>
           <Spacer height={12} />
           <Typography variant="h4">
-            Question Title Question Title Question Title
+            {props.title}
           </Typography>
           <Spacer height={24} />
           <Stack direction="row" spacing={1}>
@@ -41,10 +55,9 @@ const Heading = () => {
               fontSize: "2rem",
             }}
           >
-            K
+            {props.questionUserName}
           </Avatar>
           <Spacer height={6} />
-          <Typography variant="body1">Kate</Typography>
         </Grid>
       </Grid>
     </Paper>

@@ -1,8 +1,14 @@
 import { Avatar, Box, Typography } from "@mui/material";
 import { deepOrange } from "@mui/material/colors";
 import Spacer from "../Atoms/Spacer";
+import moment from "moment";
 
-const CommentedUser = () => {
+const CommentedUser = (props) => {
+
+  const Date = (date) => {
+    return moment(date).format('YYYY-MM-DD');
+  };
+
   return (
     <Box sx={{ display: "flex", alignItems: "center" }}>
       <Avatar
@@ -17,9 +23,12 @@ const CommentedUser = () => {
         M
       </Avatar>
       <Spacer width={12} />
-      <p>Mendy</p>
+      <p>{props.userName}</p>
       <Spacer width={12} />
-      <Typography variant="caption">2021/12/25 12:25</Typography>
+      <Typography variant="caption">
+        {/* 投稿日 */}
+        {Date(props.createdAt)}
+      </Typography>
     </Box>
   );
 };

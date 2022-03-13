@@ -1,4 +1,5 @@
 import { createTheme, ThemeProvider } from "@mui/material";
+import { useRouter } from "next/router";
 import Layout from "../components/Layout/Layout";
 import "../styles/globals.css";
 import { CommonProvider } from "../providers/CommonProvider";
@@ -19,15 +20,24 @@ const theme = createTheme({
 });
 
 function MyApp({ Component, pageProps }) {
-  return (
-    <CommonProvider>
+  const router = useRouter();
+  const { pathname } = router;
+
+  if (pathname == "/user/login") {
+    return (
+      <ThemeProvider theme={theme}>
+        <Component {...pageProps} />
+      </ThemeProvider>
+    );
+  } else {
+    return (
       <ThemeProvider theme={theme}>
         <Layout>
           <Component {...pageProps} />
         </Layout>
       </ThemeProvider>
-    </CommonProvider>
-  );
+    );
+  }
 }
 
 export default MyApp;
