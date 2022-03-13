@@ -2,6 +2,7 @@ import { createTheme, ThemeProvider } from "@mui/material";
 import { useRouter } from "next/router";
 import Layout from "../components/Layout/Layout";
 import "../styles/globals.css";
+import { CommonProvider } from "../providers/CommonProvider";
 
 const theme = createTheme({
   palette: {
@@ -17,7 +18,6 @@ const theme = createTheme({
     },
   },
 });
-
 
 function MyApp({ Component, pageProps }) {
   const router = useRouter();
