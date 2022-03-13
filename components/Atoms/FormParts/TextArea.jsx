@@ -1,7 +1,9 @@
 export function TextArea(props) {
   // カスタムスタイル
   const width = props.width || "100%";
-  // const height = props.height || 'min-h-[40px]';
+  const height = props.height || "100%";
+  // const minWidth = props.minWidth || "400px";
+  const minHeight = props.minHeight || "400px";
   const border = props.border || "border-main2 border-solid border-2";
   const focusBgColor = props.focusBgColor || "focus:bg-sub2";
 
@@ -28,7 +30,8 @@ export function TextArea(props) {
       <style jsx>{`
         .style {
           width: ${width};
-          border: 0.1rem solid;
+          height: ${height};
+          min-height: ${minHeight};
         }
       `}</style>
     </>

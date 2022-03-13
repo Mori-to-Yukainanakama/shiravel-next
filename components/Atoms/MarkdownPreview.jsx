@@ -14,6 +14,7 @@ function MarkdownPreview() {
           justifyContent: "center",
           alignItems: "center",
           width: "100%",
+          height: "90%",
         }}
       >
         <div className="preview">
@@ -25,7 +26,8 @@ function MarkdownPreview() {
         .preview {
           width: 100%;
           height: 100%;
-          padding: 1rem;
+          padding: 0.5rem 1rem;
+          overflow: scroll;
         }
       `}</style>
     </>

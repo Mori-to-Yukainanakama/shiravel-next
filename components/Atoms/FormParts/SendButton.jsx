@@ -1,7 +1,7 @@
 import axios from "axios";
 import { useContext, useMemo, useState } from "react";
 
-import { CommonContext } from "../../../providers/CommonProvider";
+import { CommonContext } from "/providers/CommonProvider";
 import ExecuteButton from "/components/Atoms/ExecuteButton";
 
 function SendButton(props) {
@@ -10,13 +10,24 @@ function SendButton(props) {
   const [sendState, setSendState] = useState(false);
 
   function createQuestion() {
+    const data = {
+      user_id: props.id,
+      title: props.title,
+      content: props.content,
+    };
+
     axios
-      .post(baseUrl + "")
-      .then()
-      .catch();
+      .post(baseUrl + "/api/v1/create/questions", data)
+      .then((res) => {
+        console.log(res);
+        console.log("投稿しました");
+      })
+      .catch((error) => {
+        console.log(error);
+      });
   }
 
-  const createQuestionMemo = useMemo(() => createQuestion(), [sendState]);
+  const createQuestionMemo = useMemo(() => createQuestion(), []);
 
   return (
     <>

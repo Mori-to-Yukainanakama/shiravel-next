@@ -32,10 +32,11 @@ export default function create() {
         }
         .editor {
           width: 50%;
-          min-height: 100%;
+          height: 400px;
           padding: 0 0.4rem;
         }
         .editor h2 {
+          height: 10%;
           padding: 0.3rem;
           color: white;
           background-color: #342950;
