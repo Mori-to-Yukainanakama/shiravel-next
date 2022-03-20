@@ -6,7 +6,7 @@ import ExecuteButton from "/components/Atoms/ExecuteButton";
 import { CommonContext } from "/providers/CommonProvider";
 import { CreateQuestionContext } from "/providers/CreateQuestionProvider";
 
-function SendButton(props) {
+function PostQuestionButton(props) {
   const { baseUrl } = useContext(CommonContext);
   const { title, markdownValue } = useContext(CreateQuestionContext);
 
@@ -24,7 +24,6 @@ function SendButton(props) {
       .post("http://localhost:8000/api/v1/create/questions", data)
       .then((res) => {
         console.log(res);
-        console.log("投稿しました");
       })
       .catch((error) => {
         console.log(error);
@@ -33,11 +32,9 @@ function SendButton(props) {
 
   return (
     <>
-      <div className="btn-area">
-        <ExecuteButton action={createQuestion} margin={"0.5rem 1rem"}>
-          {props.text}
-        </ExecuteButton>
-      </div>
+      <ExecuteButton action={createQuestion} margin={"0.5rem 1rem"}>
+        {props.text}
+      </ExecuteButton>
 
       <style jsx>{`
         .btn-area {
@@ -50,4 +47,4 @@ function SendButton(props) {
   );
 }
 
-export default SendButton;
+export default PostQuestionButton;

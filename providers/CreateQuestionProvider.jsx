@@ -5,11 +5,18 @@ export const CreateQuestionContext = createContext({});
 export function CreateQuestionProvider(props) {
   const [title, setTitle] = useState("");
   const [markdownValue, setMarkdownValue] = useState("");
-  const [markdownContent, setMarkdownContent] = useState("");
+  const [isPreview, setPreviewState] = useState(false);
 
   return (
     <CreateQuestionContext.Provider
-      value={{ markdownValue, setMarkdownValue, title, setTitle }}
+      value={{
+        markdownValue,
+        setMarkdownValue,
+        title,
+        setTitle,
+        isPreview,
+        setPreviewState,
+      }}
     >
       {props.children}
     </CreateQuestionContext.Provider>

@@ -1,10 +1,10 @@
 import { Paper } from "@mui/material";
-import PostTitle from "/components/Molecules/PostTitle";
 import MarkdownEditor from "/components/Atoms/MarkdownEditor";
 import MarkdownPreview from "/components/Atoms/MarkdownPreview";
-import PostQuestionButton from "/components/Molecules/PostQuestionButton";
-
+import PostTitle from "/components/Molecules/CreateQuestion/PostTitle";
 import { CreateQuestionProvider } from "/providers/CreateQuestionProvider";
+import PreviewButton from "/components/Molecules/CreateQuestion/PreviewButton";
+import PostQuestionButton from "/components/Molecules/CreateQuestion/PostQuestionButton";
 
 export default function create() {
   return (
@@ -22,7 +22,10 @@ export default function create() {
             </div>
           </div>
         </Paper>
-        <PostQuestionButton text={"投稿する"} />
+        <div className="btn-area">
+          <PostQuestionButton text={"投稿する"} />
+          <PreviewButton>プレビュー</PreviewButton>
+        </div>
       </CreateQuestionProvider>
 
       <style jsx>{`
@@ -47,6 +50,11 @@ export default function create() {
           height: 100%;
           box-sizing: border-box;
           border: 0.1rem solid;
+        }
+        .btn-area {
+          width: 100%;
+          display: flex;
+          justify-content: center;
         }
       `}</style>
     </>
