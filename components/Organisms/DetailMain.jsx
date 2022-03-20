@@ -1,16 +1,22 @@
-import { Paper } from "@mui/material";
-import { useEffect } from "react";
-import { useState } from "react";
+import {
+  Accordion,
+  AccordionDetails,
+  AccordionSummary,
+  Button,
+  Paper,
+  Typography,
+} from "@mui/material";
 import Spacer from "../Atoms/Spacer";
 import Comment from "../Molecules/Comment";
-import DetailMainContent from "../Molecules/DetailMainContent";
 import Box from "@mui/material/Box";
-import BorderLine from "../Atoms/Borderline";
 import QuestionDetailMainContent from "../Molecules/QuestionDetailMainContent";
 import AnswerDetailMainContent from "../Molecules/AnswerDetailMainContent";
 
-const DetailMain = (props) => {
+const postQuestionComment = (e) => {
+  console.log(e.target);
+};
 
+const DetailMain = (props) => {
   return (
     <Paper elevation={4} sx={{ bgcolor: "white", px: 12, py: 8 }}>
       <QuestionDetailMainContent
@@ -18,13 +24,33 @@ const DetailMain = (props) => {
         content={props.question.content}
       />
       {props.questionComments.map((questionComment, index) => {
-        return <Comment
-                  key={index}
-                  content={questionComment.content}
-                  userName={questionComment.user.name}
-                  createdAt={questionComment.created_at}
-                />
+        return (
+          <Comment
+            key={index}
+            content={questionComment.content}
+            userName={questionComment.user.name}
+            createdAt={questionComment.created_at}
+          />
+        );
       })}
+      {/* コメント投稿画面 */}
+      <Accordion disableGutters>
+        <AccordionSummary>
+          ここをクリックしてコメント投稿画面を開く
+        </AccordionSummary>
+        <AccordionDetails>
+          <Box
+            className="editor"
+            sx={{ width: "100%", height: "400px", border: "1px solid gray" }}
+          >
+            ここにエディターが入る
+          </Box>
+        </AccordionDetails>
+        <Button variant="contained" onClick={postQuestionComment}>
+          <Typography>コメントを投稿する</Typography>
+        </Button>
+      </Accordion>
+      {/* コメント投稿画面 end */}
       <Spacer height={40} />
       {props.answers.map((answer, index) => {
         return (
@@ -45,10 +71,32 @@ const DetailMain = (props) => {
                   userName={answerComment.user.name}
                   createdAt={answerComment.created_at}
                 />
-              )
+              );
             })}
+            {/* コメント投稿画面 */}
+            <Accordion disableGutters>
+              <AccordionSummary>
+                ここをクリックしてコメント投稿画面を開く
+              </AccordionSummary>
+              <AccordionDetails>
+                <Box
+                  className="editor"
+                  sx={{
+                    width: "100%",
+                    height: "400px",
+                    border: "1px solid gray",
+                  }}
+                >
+                  ここにエディターが入る
+                </Box>
+              </AccordionDetails>
+              <Button variant="contained" onClick={postQuestionComment}>
+                <Typography>コメントを投稿する</Typography>
+              </Button>
+            </Accordion>
+            {/* コメント投稿画面 end */}
           </Box>
-        )
+        );
       })}
     </Paper>
   );
