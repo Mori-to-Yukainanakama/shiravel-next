@@ -26,15 +26,19 @@ function MyApp({ Component, pageProps }) {
   if (pathname == "/user/login") {
     return (
       <ThemeProvider theme={theme}>
-        <Component {...pageProps} />
+        <CommonProvider>
+          <Component {...pageProps} />
+        </CommonProvider>
       </ThemeProvider>
     );
   } else {
     return (
       <ThemeProvider theme={theme}>
-        <Layout>
-          <Component {...pageProps} />
-        </Layout>
+        <CommonProvider>
+          <Layout>
+            <Component {...pageProps} />
+          </Layout>
+        </CommonProvider>
       </ThemeProvider>
     );
   }
