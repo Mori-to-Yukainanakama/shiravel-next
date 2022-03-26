@@ -6,9 +6,6 @@ import { useState } from "react";
 
 const Heading = (props) => {
 
-  const [isSolved, setIsSolved] = useState("未解決");
-  const [isAnswered, setIsAnswered] = useState("回答済");
-
   return (
     <Paper elevation={4} sx={{ bgcolor: "background.paper" }}>
       <Grid container>
@@ -24,8 +21,8 @@ const Heading = (props) => {
           </Typography>
           <Spacer height={24} />
           <Stack direction="row" spacing={1}>
-            <Chip label="回答済" color="success" />
-            <Chip label="未解決" color="error" />
+            <Chip label={props.isAnswered} color="success" />
+            <Chip label={props.isSolved} color="error" />
           </Stack>
         </Grid>
         <Grid

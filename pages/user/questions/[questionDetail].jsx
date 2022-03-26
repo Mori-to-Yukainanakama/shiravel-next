@@ -20,7 +20,6 @@ const QuestionDetail = () => {
 
     if (question_id != undefined) {
       axios.get("http://localhost:8000/api/v1/questions/detail", {params:{question_id: question_id}}).then((response) => {
-        // console.log(response.data.user.name);
         setQuestionUserName(response.data.user.name);
         setQuestion(response.data);
         setAnswers(response.data.answers);
@@ -37,7 +36,7 @@ const QuestionDetail = () => {
            title={question.title}
            createdAt={question.created_at}
            isSolved={question.is_solved}
-           isAnswerd={question.is_answerd}
+           isAnswered={question.is_answered}
            questionUserName={questionUserName}
           />
           <Spacer height={20} />
