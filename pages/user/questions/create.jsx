@@ -15,17 +15,17 @@ export default function create() {
           <div className="editor">
             <MarkdownEditor />
           </div>
-          <div className="editor">
+          {/* <div className="editor">
             <div className="preview">
               <h2 className="title">プレビュー</h2>
-              <MarkdownPreview />
             </div>
-          </div>
+          </div> */}
         </Paper>
         <div className="btn-area">
           <PostQuestionButton text={"投稿する"} />
           <PreviewButton>プレビュー</PreviewButton>
         </div>
+        <MarkdownPreview />
       </CreateQuestionProvider>
 
       <style jsx>{`
@@ -35,7 +35,7 @@ export default function create() {
           justify-content: center;
         }
         .editor {
-          width: 50%;
+          width: 100%;
           height: 400px;
           padding: 0 0.4rem;
         }

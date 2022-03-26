@@ -1,4 +1,4 @@
-import { useContext } from "react";
+import { useContext, useEffect } from "react";
 import ExecuteButton from "/components/Atoms/ExecuteButton";
 // プロバイダー
 import { CreateQuestionContext } from "/providers/CreateQuestionProvider";
