@@ -1,6 +1,10 @@
+// マークダウン関係
+import gfm from "remark-gfm";
+import ReactMarkdown from "react-markdown";
+import "github-markdown-css/github-markdown.css";
+
 import { useContext } from "react";
 import { Box } from "@mui/material";
-import ReactMarkdown from "react-markdown";
 import { CreateQuestionContext } from "/providers/CreateQuestionProvider";
 
 function MarkdownPreview() {
@@ -18,7 +22,9 @@ function MarkdownPreview() {
         }}
       >
         <div className="preview">
-          <ReactMarkdown>{markdownValue}</ReactMarkdown>
+          <ReactMarkdown className="markdown-body" remarkPlugins={[gfm]}>
+            {markdownValue}
+          </ReactMarkdown>
         </div>
       </Box>
 
