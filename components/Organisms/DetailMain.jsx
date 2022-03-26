@@ -8,6 +8,8 @@ import Box from "@mui/material/Box";
 import BorderLine from "../Atoms/Borderline";
 import QuestionDetailMainContent from "../Molecules/QuestionDetailMainContent";
 import AnswerDetailMainContent from "../Molecules/AnswerDetailMainContent";
+import { Typography } from "@mui/material";
+import SolidBorderLine from "../Atoms/SolidBorderline";
 
 const DetailMain = (props) => {
 
@@ -26,16 +28,28 @@ const DetailMain = (props) => {
                 />
       })}
       <Spacer height={40} />
+      <Spacer height={24} />
+      <Typography
+        variant="h4"
+        component="h4"
+        gutterBottom
+        sx={{
+          color: "#cf8807",
+          textShadow: "2px 0 #9ba0ab",
+        }}
+      >
+        {"回答_"}
+        {Object.keys(props.answers).length}件
+      </Typography>
       {props.answers.map((answer, index) => {
         return (
           <Box key={index}>
+            <Spacer height={24} />
             <AnswerDetailMainContent
-              title={"回答"}
               isAnswered={"true"}
               content={answer.content}
               answerCreatedAt={answer.created_at}
               answerUserName={answer.user.name}
-              answerItems={Object.keys(props.answers).length}
             />
             {answer.answer_comments.map((answerComment, index) => {
               return (

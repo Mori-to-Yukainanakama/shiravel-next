@@ -9,20 +9,13 @@ const Heading = (props) => {
   const [isSolved, setIsSolved] = useState("未解決");
   const [isAnswered, setIsAnswered] = useState("回答済");
 
-  const Date = (date) => {
-    return moment(date).format('YYYY-MM-DD');
-  };
-
-
-
   return (
     <Paper elevation={4} sx={{ bgcolor: "background.paper" }}>
       <Grid container>
         <Grid item xs={10} sx={{ px: 6, py: 4 }}>
           <Stack spacing={2} direction={"row"}>
             <Typography variant="caption">
-              {/* 投稿日 */}
-              {Date(props.createdAt)}
+              {props.createdAt}
             </Typography>
           </Stack>
           <Spacer height={12} />

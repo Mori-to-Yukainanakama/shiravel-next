@@ -7,11 +7,6 @@ import SolidBorderLine from "../Atoms/SolidBorderline";
 
 const MainContent = ({ isAnswered = false, content, answerCreatedAt, answerUserName, title }) => {
 
-
-  const Date = (date) => {
-    return moment(date).format('YYYY-MM-DD');
-  };
-
   return (
     <Box>
       <Spacer height={24} />
@@ -41,8 +36,7 @@ const MainContent = ({ isAnswered = false, content, answerCreatedAt, answerUserN
               }}
             >
               <Typography variant="caption">
-                {/* 投稿日 */}
-                {Date(answerCreatedAt)}
+                {answerCreatedAt}
               </Typography>
               <Spacer width={24} />
               <Avatar

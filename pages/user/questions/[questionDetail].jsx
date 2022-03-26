@@ -32,7 +32,6 @@ const QuestionDetail = () => {
 
   return (
       <Box sx={{ bgcolor: "primary.main", py: 8 }}>
-        {console.log(question.user)}
         <Container>
           <Heading
            title={question.title}
