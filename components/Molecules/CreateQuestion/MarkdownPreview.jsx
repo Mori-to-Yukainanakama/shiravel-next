@@ -5,15 +5,13 @@ import "github-markdown-css/github-markdown.css";
 
 import { useContext } from "react";
 import { Box } from "@mui/material";
-import { CreateQuestionContext } from "/providers/CreateQuestionProvider";
+import ExecuteButton from "/components/Atoms/ExecuteButton";
 import { StyleContext } from "/providers/StyleProvider";
-import ExecuteButton from "./ExecuteButton";
+import { CreateQuestionContext } from "/providers/CreateQuestionProvider";
 
-function MarkdownPreview() {
-  const { markdownValue, isPreview, setPreviewState } = useContext(
-    CreateQuestionContext
-  );
+export function MarkdownPreview(props) {
   const { theme } = useContext(StyleContext);
+  const { isPreview, setPreviewState } = useContext(CreateQuestionContext);
 
   if (isPreview) {
     return (
@@ -33,7 +31,7 @@ function MarkdownPreview() {
           >
             <div className={"preview"}>
               <ReactMarkdown className={"markdown-body"} remarkPlugins={[gfm]}>
-                {markdownValue}
+                {props.value}
               </ReactMarkdown>
             </div>
             <div className={"btn-area"}>
@@ -78,5 +76,3 @@ function MarkdownPreview() {
     return null;
   }
 }
-
-export default MarkdownPreview;

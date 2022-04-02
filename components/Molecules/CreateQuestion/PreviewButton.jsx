@@ -3,7 +3,7 @@ import ExecuteButton from "/components/Atoms/ExecuteButton";
 // プロバイダー
 import { CreateQuestionContext } from "/providers/CreateQuestionProvider";
 
-function PreviewButton(props) {
+export function PreviewButton(props) {
   const { setPreviewState } = useContext(CreateQuestionContext);
 
   return (
@@ -12,5 +12,3 @@ function PreviewButton(props) {
     </ExecuteButton>
   );
 }
-
-export default PreviewButton;
