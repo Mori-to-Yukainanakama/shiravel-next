@@ -3,9 +3,8 @@ import Link from "next/link";
 import Card from "@mui/material/Card";
 import CardContent from "@mui/material/CardContent";
 import Typography from "@mui/material/Typography";
-import { Box, List, ListItem } from "@mui/material";
+import { Box } from "@mui/material";
 import Spacer from "../Atoms/Spacer";
-import moment from "moment";
 
 // 表示件数
 const LIST_COUNT = 20;

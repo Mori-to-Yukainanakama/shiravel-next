@@ -3,13 +3,12 @@ import { useForm } from "react-hook-form";
 import { useContext, useState } from "react";
 import { Box, Paper, Typography, Input } from "@mui/material";
 import { ErrorMessage } from "@hookform/error-message";
-
 import { StyleContext } from "/providers/StyleProvider";
 import { CreateQuestionProvider } from "/providers/CreateQuestionProvider";
 import { PreviewButton } from "/components/Molecules/CreateQuestion/PreviewButton";
 import { MarkdownPreview } from "/components/Molecules/CreateQuestion/MarkdownPreview";
 
-export default function create() {
+export default function Create() {
   const { theme } = useContext(StyleContext);
   const [title, setTitle] = useState("");
   const [markdownValue, setMarkdownValue] = useState("");
@@ -31,7 +30,7 @@ export default function create() {
     };
 
     axios
-      .post("http://localhost:8000/api/v1/create/questions", data)
+      .post("http://localhost:8000/api/v1/questions/create", data, {withCredentials: true})
       .then((res) => {
         console.log(res);
         // TODO 質問の詳細画面へリダイレクト

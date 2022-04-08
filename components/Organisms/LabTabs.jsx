@@ -107,9 +107,9 @@ export default function LabTabs(props) {
         >
           <Tab label="新着" value="1" onClick={getNewArrival} />
           <Tab label="未回答" value="2" onClick={getUnanswered} />
-          <Tab label="回答済み" value="3" onClick={getAnswered} />
+          <Tab label="回答有" value="3" onClick={getAnswered} />
           <Tab label="未解決" value="4" onClick={getUnsolved} />
-          <Tab label="解決済み" value="5" onClick={getSolved} />
+          <Tab label="解決済" value="5" onClick={getSolved} />
         </Tabs>
         <Spacer whidth={"20px"} height={"20px"} />
         <TabPanel value="1">
