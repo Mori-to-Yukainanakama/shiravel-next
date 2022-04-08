@@ -1,7 +1,6 @@
 import { Avatar, Box, Typography } from "@mui/material";
 import Borderline from "../Atoms/Borderline";
 import Spacer from "../Atoms/Spacer";
-import moment from "moment";
 import SolidBorderLine from "../Atoms/SolidBorderline";
 
 

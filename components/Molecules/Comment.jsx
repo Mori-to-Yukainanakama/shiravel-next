@@ -2,6 +2,7 @@ import { Box, Typography } from "@mui/material";
 import BorderLine from "../Atoms/Borderline";
 import Spacer from "../Atoms/Spacer";
 import CommentedUser from "./CommentedUser";
+import BestAnswer from "../Organisms/BestAnswer";
 
 const Comment = (props) => {
 
@@ -15,6 +16,7 @@ const Comment = (props) => {
         />
         <Box sx={{ p: 5 }}>
           {props.content}
+          <BestAnswer questionId={props.questionId} type={props.type} createId={props.createId} />
         </Box>
       </Box>
       <BorderLine />

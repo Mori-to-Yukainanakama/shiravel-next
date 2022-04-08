@@ -14,7 +14,6 @@ import Comment from "../Molecules/Comment";
 import Box from "@mui/material/Box";
 import QuestionDetailMainContent from "../Molecules/QuestionDetailMainContent";
 import AnswerDetailMainContent from "../Molecules/AnswerDetailMainContent";
-import SolidBorderLine from "../Atoms/SolidBorderline";
 import { useState } from "react";
 
 const postQuestionComment = (e) => {
@@ -53,6 +52,9 @@ const DetailMain = (props) => {
             content={questionComment.content}
             userName={questionComment.user.name}
             createdAt={questionComment.created_at}
+            questionId={props.question.question_id}
+            type={"questionComment"}
+            createId={questionComment.question_comment_id}
           />
         );
       })}
@@ -117,6 +119,8 @@ const DetailMain = (props) => {
         {"回答_"}
         {Object.keys(props.answers).length}件
       </Typography>
+
+      {/* 回答表示 */}
       {props.answers.map((answer, index) => {
         return (
           <Box key={index}>
@@ -126,6 +130,8 @@ const DetailMain = (props) => {
               content={answer.content}
               answerCreatedAt={answer.created_at}
               answerUserName={answer.user.name}
+              answerId={answer.answer_id}
+              questionId={props.question.question_id}
             />
             {answer.answer_comments.map((answerComment, index) => {
               return (
@@ -134,6 +140,9 @@ const DetailMain = (props) => {
                   content={answerComment.content}
                   userName={answerComment.user.name}
                   createdAt={answerComment.created_at}
+                  questionId={props.question.question_id}
+                  type={"answerComment"}
+                  createId={answerComment.answer_comment_id}
                 />
               );
             })}

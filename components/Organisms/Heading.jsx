@@ -1,8 +1,6 @@
 import { Avatar, Chip, Grid, Paper, Stack, Typography } from "@mui/material";
 import { deepPurple } from "@mui/material/colors";
 import Spacer from "../Atoms/Spacer";
-import moment from "moment";
-import { useState } from "react";
 
 const Heading = (props) => {
 

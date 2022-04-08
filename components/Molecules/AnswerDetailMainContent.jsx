@@ -1,11 +1,14 @@
-import { Avatar, Box, Typography } from "@mui/material";
+import { Avatar, Box, Typography, Fab } from "@mui/material";
 import Borderline from "../Atoms/Borderline";
 import Spacer from "../Atoms/Spacer";
-import moment from "moment";
-import SolidBorderLine from "../Atoms/SolidBorderline";
+import Button from '@mui/material/Button';
+import axios from "axios";
+import { useState } from "react";
+import Modal from '@mui/material/Modal';
+import BestAnswer from "../Organisms/BestAnswer";
 
 
-const MainContent = (props) => {
+const AnswerDetailMainContent = (props) => {
 
   return (
     <Box>
@@ -19,6 +22,8 @@ const MainContent = (props) => {
             alignItems: "center",
           }}
         >
+          <BestAnswer questionId={props.questionId} type={"answer"} createId={props.answerId} />
+          <Spacer width={24} />
           <Typography variant="caption">
             {props.answerCreatedAt}
           </Typography>
@@ -42,4 +47,4 @@ const MainContent = (props) => {
   );
 };
 
-export default MainContent;
+export default AnswerDetailMainContent;
