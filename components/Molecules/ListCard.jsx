@@ -23,10 +23,6 @@ const cardStyle = {
   },
 };
 
-const Date = (date) => {
-  return moment(date).format('YYYY-MM-DD');
-};
-
 export default function ListCard(props) {
 
   return (
@@ -57,7 +53,7 @@ export default function ListCard(props) {
             variant="string"
             component="span"
           >
-            投稿日：{Date(props.question.created_at)}
+            投稿日：{props.question.created_at}
           </Typography>
         </Box>
       </CardContent>

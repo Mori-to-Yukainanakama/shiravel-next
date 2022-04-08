@@ -5,10 +5,6 @@ import moment from "moment";
 
 const CommentedUser = (props) => {
 
-  const Date = (date) => {
-    return moment(date).format('YYYY-MM-DD');
-  };
-
   return (
     <Box sx={{ display: "flex", alignItems: "center" }}>
       <Avatar
@@ -26,8 +22,7 @@ const CommentedUser = (props) => {
       <p>{props.userName}</p>
       <Spacer width={12} />
       <Typography variant="caption">
-        {/* 投稿日 */}
-        {Date(props.createdAt)}
+        {props.createdAt}
       </Typography>
     </Box>
   );
