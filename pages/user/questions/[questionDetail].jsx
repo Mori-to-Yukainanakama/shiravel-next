@@ -9,7 +9,6 @@ import { useState } from "react";
 import { useRouter } from "next/router";
 
 const QuestionDetail = () => {
-
   const [question, setQuestion] = useState([]);
   const [answers, setAnswers] = useState([]);
   const [questionComments, setQuestionComments] = useState([]);
@@ -17,7 +16,6 @@ const QuestionDetail = () => {
   const question_id = useRouter().query.questionDetail;
 
   useEffect(() => {
-
     if (question_id != undefined) {
       axios.get("http://localhost:8000/api/v1/questions/detail", {params:{question_id: question_id}}).then((response) => {
         setQuestionUserName(response.data.user.name);
@@ -27,7 +25,7 @@ const QuestionDetail = () => {
       });
     }
     // ※ 注意ですが、最後の, []がないと何度も何度もデータを取得することになるので注意！
-  },[question_id]);
+  }, [question_id]);
 
   return (
       <Box sx={{ bgcolor: "primary.main", py: 8 }}>
