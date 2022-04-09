@@ -5,12 +5,16 @@ import { ErrorMessage } from "@hookform/error-message";
 import axios from "axios";
 
 export default function Login() {
+  let errMessage = null;
+
+  // react-hook-formの定型文
   const {
     handleSubmit,
     control,
     formState: { errors },
   } = useForm();
 
+  // バリデーション通過後の処理
   const onSubmit = (values) => {
     axios
       .get("http://localhost:8000/sanctum/csrf-cookie", {
@@ -22,13 +26,14 @@ export default function Login() {
             withCredentials: true,
           })
           .then((res) => {
-            console.log(res.data);
+            location.href = "http://localhost:3000/user/questions";
           })
           .catch((err) => {
-            console.log(err.data);
+            console.log(err);
           });
       });
   };
+
   return (
     <Box
       sx={{
