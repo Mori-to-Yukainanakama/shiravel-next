@@ -2,20 +2,51 @@ import { Box, Container } from "@mui/material";
 import Heading from "../../../components/Organisms/Heading";
 import DetailMain from "../../../components/Organisms/DetailMain";
 import Spacer from "../../../components/Atoms/Spacer";
-import Editor from "../../../components/Molecules/Editor";
+import AnswerCreateEditor from "../../../components/Organisms/AnswerCreateEditor";
 import { useEffect } from "react";
 import axios from "axios";
 import { useState } from "react";
 import { useRouter } from "next/router";
+import { Accordion } from "@mui/material";
+import { AccordionSummary } from "@mui/material";
+import { AccordionDetails } from "@mui/material";
 
 const QuestionDetail = () => {
+
+  const router = useRouter();
+
   const [question, setQuestion] = useState([]);
   const [answers, setAnswers] = useState([]);
   const [questionComments, setQuestionComments] = useState([]);
   const [questionUserName, setQuestionUserName] = useState();
   const question_id = useRouter().query.questionDetail;
+  const [isAnswerEditor, setIsAnswerEditor] = useState(false);
+  // モーダル
+  const [open, setOpen] = useState(false);
+  const handleOpen = () => setOpen(true);
+  const handleClose = () => setOpen(false);
+
+  // モーダルのstyle
+  const style = {
+    position: "absolute",
+    top: "50%",
+    left: "50%",
+    transform: "translate(-50%, -50%)",
+    width: 400,
+    bgcolor: "background.paper",
+    border: "2px solid #000",
+    boxShadow: 24,
+    p: 4,
+  };
 
   useEffect(() => {
+    // ログインしていたらユーザー情報を取得
+    axios.get("http://localhost:8000/api/v1/users/getUser",{withCredentials: true}).then((response) => {
+    }).catch((error) => {
+      console.log(error);
+      router.push('/user/login')
+    });
+
     if (question_id != undefined) {
       axios.get("http://localhost:8000/api/v1/questions/detail", {params:{question_id: question_id}}).then((response) => {
         setQuestionUserName(response.data.user.name);
@@ -24,8 +55,7 @@ const QuestionDetail = () => {
         setQuestionComments(response.data.question_comments);
       });
     }
-    // ※ 注意ですが、最後の, []がないと何度も何度もデータを取得することになるので注意！
-  }, [question_id]);
+  }, [question_id, router]);
 
   return (
       <Box sx={{ bgcolor: "primary.main", py: 8 }}>
@@ -44,7 +74,15 @@ const QuestionDetail = () => {
             questionComments={questionComments}
           />
           <Spacer height={20} />
-          <Editor />
+          <Accordion disableGutters>
+            <AccordionSummary>
+              回答を投稿
+            </AccordionSummary>
+            <AccordionDetails>
+              {/* 回答投稿エディター */}
+              <AnswerCreateEditor questionId={question.question_id} />
+            </AccordionDetails>
+          </Accordion>
         </Container>
       </Box>
   );

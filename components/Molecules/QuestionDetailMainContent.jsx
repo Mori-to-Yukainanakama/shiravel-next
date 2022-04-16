@@ -1,15 +1,17 @@
 import { Avatar, Box, Typography } from "@mui/material";
 import Borderline from "../Atoms/Borderline";
 import Spacer from "../Atoms/Spacer";
-import moment from "moment";
 import SolidBorderLine from "../Atoms/SolidBorderline";
+import gfm from "remark-gfm";
+import ReactMarkdown from "react-markdown";
+import "github-markdown-css/github-markdown.css";
 
 
 const MainContent = (props) => {
 
   return (
     <Box>
-      <Spacer height={24} />
+      <Spacer height={30} />
       <Typography
         variant="h4"
         component="h4"
@@ -22,12 +24,13 @@ const MainContent = (props) => {
         {props.title}
       </Typography>
       <SolidBorderLine />
-      <Spacer height={24} />
+      <Spacer height={100} />
       <Box sx={{ px: 2 }}>
-        {props.content}
+        <ReactMarkdown className={"markdown-body"} remarkPlugins={[gfm]}>
+          {props.content}
+        </ReactMarkdown>
       </Box>
-      <Spacer height={24} />
-      <Borderline />
+      <Spacer height={100} />
     </Box>
   );
 };

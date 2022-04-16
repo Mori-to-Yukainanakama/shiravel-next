@@ -1,6 +1,12 @@
-import { Box, Container, Typography } from "@mui/material";
+import { Box, Button, Container, Typography } from "@mui/material";
+import axios from "axios";
+import { useRouter } from "next/router";
+import Navbar from "./Navbar";
 
 const Header = () => {
+
+  const router = useRouter();
+
   return (
     <header>
       <Box
@@ -13,7 +19,6 @@ const Header = () => {
           alignItems: "center",
           justifyContent: "center",
           borderBottom: 4,
-          borderColor: "secondary.main"
         }}
       >
         <Container>

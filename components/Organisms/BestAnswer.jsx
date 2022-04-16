@@ -18,7 +18,7 @@ const BestAnswer = (props) => {
         border: '2px solid #000',
         boxShadow: 24,
         p: 4,
-      };
+    };
 
     const [open, setOpen] = useState(false);
     const handleOpen = () => setOpen(true);
@@ -66,7 +66,6 @@ const BestAnswer = (props) => {
             <Button variant="contained" onClick={handleOpen}>
                 ベストアンサー登録
             </Button>
-
             {/* ベストアンサーモーダル */}
             <Modal
                 open={open}

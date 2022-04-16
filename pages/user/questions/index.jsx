@@ -5,17 +5,27 @@ import Grid from "@mui/material/Grid";
 import PageTitle from "../../../components/Atoms/PageTitle";
 import LabTabs from "../../../components/Organisms/LabTabs";
 import axios from "axios";
+import { useRouter } from "next/router";
 
 export default function QuestionList() {
 
   const [questions, setQuestions] = useState([]);
 
+  const router = useRouter();
+
   useEffect(() => {
+    // ログインしていたらユーザー情報を取得
+    axios.get("http://localhost:8000/api/v1/users/getUser",{withCredentials: true}).then((response) => {
+    }).catch((error) => {
+      // コンソールのエラーを消す
+      console.clear()
+      router.push('/user/login');
+    });
+
     axios.get('http://localhost:8000/api/v1/questions/').then((response) => {
       setQuestions(response.data);
     });
-    // ※ 注意ですが、最後の, []がないと何度も何度もデータを取得することになるので注意！
-  },[]);
+  },[router]);
 
   return (
     <Box sx={{ bgcolor: "primary.main", py: 5 }}>

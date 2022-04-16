@@ -1,6 +1,7 @@
 import { Avatar, Chip, Grid, Paper, Stack, Typography } from "@mui/material";
 import { deepPurple } from "@mui/material/colors";
 import Spacer from "../Atoms/Spacer";
+import AccountCircleIcon from '@mui/icons-material/AccountCircle';
 
 const Heading = (props) => {
 
@@ -34,17 +35,10 @@ const Heading = (props) => {
             justifyContent: "center",
           }}
         >
-          <Avatar
-            variant="rounded"
-            sx={{
-              width: 60,
-              height: 60,
-              bgcolor: deepPurple[500],
-              fontSize: "2rem",
-            }}
-          >
+          <AccountCircleIcon />
+          <Typography variant="string">
             {props.questionUserName}
-          </Avatar>
+          </Typography>
           <Spacer height={6} />
         </Grid>
       </Grid>
