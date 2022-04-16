@@ -1,18 +1,18 @@
 import { createContext, useState } from "react";
 
-export const CreateQuestionContext = createContext({});
+export const CreateContext = createContext({});
 
-export function CreateQuestionProvider(props) {
+export function CreateProvider(props) {
   const [isPreview, setPreviewState] = useState(false);
 
   return (
-    <CreateQuestionContext.Provider
+    <CreateContext.Provider
       value={{
         isPreview,
         setPreviewState,
       }}
     >
       {props.children}
-    </CreateQuestionContext.Provider>
+    </CreateContext.Provider>
   );
 }

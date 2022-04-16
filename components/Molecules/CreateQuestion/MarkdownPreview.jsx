@@ -2,16 +2,15 @@
 import gfm from "remark-gfm";
 import ReactMarkdown from "react-markdown";
 import "github-markdown-css/github-markdown.css";
-
 import { useContext } from "react";
 import { Box } from "@mui/material";
 import ExecuteButton from "/components/Atoms/ExecuteButton";
 import { StyleContext } from "/providers/StyleProvider";
-import { CreateQuestionContext } from "/providers/CreateQuestionProvider";
+import { CreateContext } from "/providers/CreateProvider";
 
 export function MarkdownPreview(props) {
   const { theme } = useContext(StyleContext);
-  const { isPreview, setPreviewState } = useContext(CreateQuestionContext);
+  const { isPreview, setPreviewState } = useContext(CreateContext);
 
   if (isPreview) {
     return (

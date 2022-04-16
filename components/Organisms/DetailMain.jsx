@@ -15,6 +15,11 @@ import Box from "@mui/material/Box";
 import QuestionDetailMainContent from "../Molecules/QuestionDetailMainContent";
 import AnswerDetailMainContent from "../Molecules/AnswerDetailMainContent";
 import { useState } from "react";
+import QuestionCommentEditor from "./questionCommentEditor";
+import AnswerCommentEditor from "./AnswerCommentEditor";
+import ChatIcon from '@mui/icons-material/Chat';
+import SendIcon from '@mui/icons-material/Send';
+import SolidBorderLine from "../Atoms/SolidBorderline";
 
 const postQuestionComment = (e) => {
   console.log(e.target);
@@ -38,6 +43,54 @@ const DetailMain = (props) => {
   const [open, setOpen] = useState(false);
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
+  const [questionCommentOpen, setQuestionCommentOpen] = useState(false);
+  const [questionCommentEditorOpen, setQuestionCommentEditorOpen] = useState(false);
+
+  // 回答コメント用の表示/非表示切り替えstate
+  const [activeAnswerComment, setActiveAnswerComment] = useState(-1);
+
+  // 回答コメント送信フォーム用の表示/非表示切り替えstate
+  const [activeAnswerCommentForm, setActiveAnswerCommentForm] = useState(-1);
+
+  // 質問コメント表示/非表示切り替え関数
+  const switchQuestionCommentOpen = () => {
+    setQuestionCommentOpen(!questionCommentOpen);
+  };
+
+  // 質問コメントフォーム表示/非表示切り替え関数
+  const switchQuestionCommentFormOpen = () => {
+    setQuestionCommentEditorOpen(!questionCommentEditorOpen);
+  };
+
+  // 回答コメント表示/非表示切り替え関数
+  const onChangeActiveAnswerComment = (index) => {
+    // すでに表示になっていた場合に閉じる
+    if (activeAnswerComment == index) {
+      setActiveAnswerComment(-1);
+    } else {
+      setActiveAnswerComment(index);
+    }
+  };
+
+  // 回答コメント送信フォーム表示/非表示切り替え関数
+  const onChangeActiveAnswerCommentForm = (index) => {
+    // すでに表示になっていた場合に閉じる
+    if (activeAnswerCommentForm == index) {
+      setActiveAnswerCommentForm(-1);
+    } else {
+      setActiveAnswerCommentForm(index);
+    }
+  };
+
+  // 表示のスタイル
+  const activeStyle = {
+    display: 'block',
+  }
+
+  // 非表示のスタイル
+  const noneStyle = {
+    display: 'none',
+  }
 
   return (
     <Paper elevation={4} sx={{ bgcolor: "white", px: 12, py: 8 }}>
@@ -45,68 +98,39 @@ const DetailMain = (props) => {
         title={"質問"}
         content={props.question.content}
       />
-      {props.questionComments.map((questionComment, index) => {
-        return (
-          <Comment
-            key={index}
-            content={questionComment.content}
-            userName={questionComment.user.name}
-            createdAt={questionComment.created_at}
-            questionId={props.question.question_id}
-            type={"questionComment"}
-            createId={questionComment.question_comment_id}
-          />
-        );
-      })}
-      {/* コメント投稿画面 */}
-      <Accordion disableGutters>
-        <AccordionSummary>
-          ここをクリックしてコメント投稿画面を開く
-        </AccordionSummary>
-        <AccordionDetails>
-          <Box
-            className="editor"
-            sx={{ width: "100%", height: "400px", border: "1px solid gray" }}
-          >
-            ここにエディターが入る
-          </Box>
-        </AccordionDetails>
-        <Button variant="contained" onClick={handleOpen}>
-          プレビュー
+      {/* 質問コメント表示 */}
+      <Box sx={{ display: 'flex', flexDirection: 'row-reverse'}}>
+        <Button onClick={switchQuestionCommentOpen} >
+          <ChatIcon />コメント
         </Button>
-        <Modal
-          aria-labelledby="transition-modal-title"
-          aria-describedby="transition-modal-description"
-          open={open}
-          onClose={handleClose}
-          closeAfterTransition
-          BackdropComponent={Backdrop}
-          BackdropProps={{
-            timeout: 500,
-          }}
-        >
-          <Fade in={open}>
-            <Box sx={style}>
-              <Typography
-                id="transition-modal-title"
-                variant="h6"
-                component="h2"
-              >
-                Text in a modal
-              </Typography>
-              <Typography id="transition-modal-description" sx={{ mt: 2 }}>
-                Duis mollis, est non commodo luctus, nisi erat porttitor ligula.
-              </Typography>
-            </Box>
-          </Fade>
-        </Modal>
-        <Button variant="contained" onClick={postQuestionComment}>
-          <Typography>コメントを投稿する</Typography>
-        </Button>
-      </Accordion>
-      {/* コメント投稿画面 end */}
-      <Spacer height={40} />
-      <Spacer height={24} />
+      </Box>
+      {questionCommentOpen &&
+        <>
+          {props.questionComments.map((questionComment, index) => {
+            return (
+              <Comment
+                key={index}
+                content={questionComment.content}
+                userName={questionComment.user.name}
+                createdAt={questionComment.created_at}
+                questionId={props.question.question_id}
+                type={"questionComment"}
+                createId={questionComment.question_comment_id}
+              />
+            );
+          })}
+          <Spacer height={24} />
+          {/* 質問コメント投稿画面 */}
+          <Button onClick={switchQuestionCommentFormOpen}>
+            <SendIcon />
+          </Button>
+          <Spacer height={20} />
+          {/* 質問コメントエディター */}
+          {questionCommentEditorOpen && <QuestionCommentEditor questionId={props.question.question_id} />}
+          <Spacer height={40} />
+        </>
+      }
+      <Spacer height={100} />
       <Typography
         variant="h4"
         component="h4"
@@ -119,12 +143,12 @@ const DetailMain = (props) => {
         {"回答_"}
         {Object.keys(props.answers).length}件
       </Typography>
-
+      <SolidBorderLine />
       {/* 回答表示 */}
       {props.answers.map((answer, index) => {
         return (
           <Box key={index}>
-            <Spacer height={24} />
+            <Spacer height={100} />
             <AnswerDetailMainContent
               isAnswered={"true"}
               content={answer.content}
@@ -133,74 +157,41 @@ const DetailMain = (props) => {
               answerId={answer.answer_id}
               questionId={props.question.question_id}
             />
-            {answer.answer_comments.map((answerComment, index) => {
-              return (
-                <Comment
-                  key={index}
-                  content={answerComment.content}
-                  userName={answerComment.user.name}
-                  createdAt={answerComment.created_at}
-                  questionId={props.question.question_id}
-                  type={"answerComment"}
-                  createId={answerComment.answer_comment_id}
-                />
-              );
-            })}
-            {/* コメント投稿画面 */}
-            <Accordion disableGutters>
-              <AccordionSummary>
-                ここをクリックしてコメント投稿画面を開く
-              </AccordionSummary>
-              <AccordionDetails>
-                <Box
-                  className="editor"
-                  sx={{
-                    width: "100%",
-                    height: "400px",
-                    border: "1px solid gray",
-                  }}
-                >
-                  ここにエディターが入る
-                </Box>
-              </AccordionDetails>
-              <Button variant="contained" onClick={handleOpen}>
-                プレビュー
+            <Box sx={{ display: 'flex', flexDirection: 'row-reverse'}}>
+              <Button onClick={() => onChangeActiveAnswerComment(index)} >
+                <ChatIcon />コメント
               </Button>
-              <Modal
-                aria-labelledby="transition-modal-title"
-                aria-describedby="transition-modal-description"
-                open={open}
-                onClose={handleClose}
-                closeAfterTransition
-                BackdropComponent={Backdrop}
-                BackdropProps={{
-                  timeout: 500,
-                }}
-              >
-                <Fade in={open}>
-                  <Box sx={style}>
-                    <Typography
-                      id="transition-modal-title"
-                      variant="h6"
-                      component="h2"
-                    >
-                      Text in a modal
-                    </Typography>
-                    <Typography
-                      id="transition-modal-description"
-                      sx={{ mt: 2 }}
-                    >
-                      Duis mollis, est non commodo luctus, nisi erat porttitor
-                      ligula.
-                    </Typography>
-                  </Box>
-                </Fade>
-              </Modal>
-              <Button variant="contained" onClick={postQuestionComment}>
-                <Typography>コメントを投稿する</Typography>
+            </Box>
+            {/* クリックされた要素のコメントを判定 */}
+            <Box sx={activeAnswerComment == index ? activeStyle : noneStyle }>
+              {answer.answer_comments.map((answerComment, index) => {
+                return (
+                  <Comment
+                    key={index}
+                    content={answerComment.content}
+                    userName={answerComment.user.name}
+                    createdAt={answerComment.created_at}
+                    questionId={props.question.question_id}
+                    type={"answerComment"}
+                    createId={answerComment.answer_comment_id}
+                  />
+                );
+              })}
+              <Spacer height={24} />
+              {/* 回答コメント投稿画面 */}
+              <Button onClick={() => onChangeActiveAnswerCommentForm(index)}>
+                <SendIcon />
               </Button>
-            </Accordion>
-            {/* コメント投稿画面 end */}
+              <Spacer height={20} />
+              {/* クリックされた要素のコメントを判定 */}
+              <Box sx={activeAnswerCommentForm == index ? activeStyle : noneStyle }>
+                {/* 回答コメントエディター */}
+                <AnswerCommentEditor answerId={answer.answer_id} />
+              </Box>
+              <Spacer height={40} />
+            </Box>
+            <Spacer height={50} />
+            <SolidBorderLine />
           </Box>
         );
       })}

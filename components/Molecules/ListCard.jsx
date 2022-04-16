@@ -26,36 +26,36 @@ export default function ListCard(props) {
 
   return (
     <>
-    <Link href={`/user/questions/${props.question.question_id}`} passHref>
-      <CardContent sx={cardStyle}>
-        <Typography
-          variant="button"
-          component="div"
-          sx={{fontSize: "40px"}}
-        >
-          {props.question.title}
-        </Typography>
-        <Box
-          sx={{
-            display: "flex",
-            justifyContent: "flex-end",
-          }}
-        >
+      <Link href={`/user/questions/${props.question.question_id}`} passHref>
+        <CardContent sx={cardStyle}>
           <Typography
-            variant="string"
-            component="span"
-            sx={{px:10}}
+            variant="button"
+            component="div"
+            sx={{fontSize: "40px"}}
           >
-            {props.question.user.name}
+            {props.question.title}
           </Typography>
-          <Typography
-            variant="string"
-            component="span"
+          <Box
+            sx={{
+              display: "flex",
+              justifyContent: "flex-end",
+            }}
           >
-            投稿日：{props.question.created_at}
-          </Typography>
-        </Box>
-      </CardContent>
+            <Typography
+              variant="string"
+              component="span"
+              sx={{px:10}}
+            >
+              {props.question.user.name}
+            </Typography>
+            <Typography
+              variant="string"
+              component="span"
+            >
+              投稿日：{props.question.created_at}
+            </Typography>
+          </Box>
+        </CardContent>
       </Link>
       <Spacer width={100} height={20} />
     </>
