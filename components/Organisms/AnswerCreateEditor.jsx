@@ -4,7 +4,7 @@ import { useContext, useState } from "react";
 import { Box, Paper, Typography, Input } from "@mui/material";
 import { ErrorMessage } from "@hookform/error-message";
 import { StyleContext } from "/providers/StyleProvider";
-import { CreateProvider } from "/providers/CreateProvider";
+import { CommonProvider } from "/providers/CommonProvider";
 import { PreviewButton } from "/components/Molecules/CreateQuestion/PreviewButton";
 import { MarkdownPreview } from "/components/Molecules/CreateQuestion/MarkdownPreview";
 import { propsToClassKey } from "@mui/styles";
@@ -42,7 +42,7 @@ const AnswerCreateEditor = (props) => {
 
   return (
     <>
-      <CreateProvider>
+      <CommonProvider>
         <form onSubmit={handleSubmit(createAnswer)}>
           {/* エディター */}
           <div className="editor">
@@ -96,7 +96,7 @@ const AnswerCreateEditor = (props) => {
           </div>
           <MarkdownPreview value={markdownValue} />
         </form>
-      </CreateProvider>
+      </CommonProvider>
       <style jsx>{`
         .editor {
           width: 100%;

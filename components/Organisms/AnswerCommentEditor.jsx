@@ -11,7 +11,7 @@ import {
 } from "@mui/material";
 import { ErrorMessage } from "@hookform/error-message";
 import { StyleContext } from "/providers/StyleProvider";
-import { CreateProvider } from "/providers/CreateProvider";
+import { CommonProvider } from "/providers/CommonProvider";
 import { PreviewButton } from "/components/Molecules/CreateQuestion/PreviewButton";
 import { MarkdownPreview } from "/components/Molecules/CreateQuestion/MarkdownPreview";
 import { propsToClassKey } from "@mui/styles";
@@ -49,7 +49,7 @@ const AnswerCommentEditor = (props) => {
 
   return (
     <>
-      <CreateProvider>
+      <CommonProvider>
         <form onSubmit={handleSubmit(createAnswerComment)}>
           <Box
             sx={{
@@ -83,7 +83,7 @@ const AnswerCommentEditor = (props) => {
             </Button>
           </Box>
         </form>
-      </CreateProvider>
+      </CommonProvider>
     </>
   );
 };

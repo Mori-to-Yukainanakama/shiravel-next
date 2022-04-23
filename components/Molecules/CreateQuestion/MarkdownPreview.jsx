@@ -6,11 +6,11 @@ import { useContext } from "react";
 import { Box } from "@mui/material";
 import ExecuteButton from "/components/Atoms/ExecuteButton";
 import { StyleContext } from "/providers/StyleProvider";
-import { CreateContext } from "/providers/CreateProvider";
+import { CommonContext } from "/providers/CommonProvider";
 
 export function MarkdownPreview(props) {
   const { theme } = useContext(StyleContext);
-  const { isPreview, setPreviewState } = useContext(CreateContext);
+  const { isPreview, setPreviewState } = useContext(CommonContext);
 
   if (isPreview) {
     return (

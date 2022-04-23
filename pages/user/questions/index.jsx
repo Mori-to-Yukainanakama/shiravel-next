@@ -12,18 +12,10 @@ export default function QuestionList() {
   const router = useRouter();
 
   useEffect(() => {
-    // ログインしていたらユーザー情報を取得
-    axios
-      .get("/api/v1/users/getUser")
-      .then((response) => {})
-      .catch((error) => {
-        router.push("/user/login");
-      });
-
     axios.get("/api/v1/questions/").then((response) => {
       setQuestions(response.data);
     });
-  }, [router]);
+  }, []);
 
   return (
     <Box sx={{ bgcolor: "primary.main", py: 5 }}>

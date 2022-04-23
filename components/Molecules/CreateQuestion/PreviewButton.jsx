@@ -1,10 +1,10 @@
 import { useContext, useEffect } from "react";
 import ExecuteButton from "/components/Atoms/ExecuteButton";
 // プロバイダー
-import { CreateContext } from "/providers/CreateProvider";
+import { CommonContext } from "@/providers/CommonProvider";
 
 export function PreviewButton(props) {
-  const { setPreviewState } = useContext(CreateContext);
+  const { setPreviewState } = useContext(CommonContext);
 
   return (
     <ExecuteButton action={() => setPreviewState(true)} margin={"0.5rem 1rem"}>

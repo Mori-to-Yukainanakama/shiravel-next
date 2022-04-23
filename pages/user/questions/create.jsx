@@ -4,7 +4,7 @@ import { useContext, useState } from "react";
 import { Box, Paper, Typography, Input, Container } from "@mui/material";
 import { ErrorMessage } from "@hookform/error-message";
 import { StyleContext } from "/providers/StyleProvider";
-import { CreateProvider } from "/providers/CreateProvider";
+import { CommonProvider } from "/providers/CommonProvider";
 import { PreviewButton } from "/components/Molecules/CreateQuestion/PreviewButton";
 import { MarkdownPreview } from "/components/Molecules/CreateQuestion/MarkdownPreview";
 import Spacer from "../../../components/Atoms/Spacer";
@@ -43,7 +43,7 @@ export default function Create() {
   return (
     <Box sx={{ bgcolor: "primary.main", py: 8 }}>
       <Container maxWidth="xl">
-        <CreateProvider>
+        <CommonProvider>
           <form onSubmit={handleSubmit(createQuestion)}>
             {/* タイトル */}
             <Paper sx={{ px: 5, py: 10, display: "block" }}>
@@ -130,7 +130,7 @@ export default function Create() {
             </div>
             <MarkdownPreview value={markdownValue} />
           </form>
-        </CreateProvider>
+        </CommonProvider>
 
         <style jsx>{`
           .editor {

@@ -4,7 +4,7 @@ import { useContext, useState } from "react";
 import { Box, Paper, Typography, Input, TextField } from "@mui/material";
 import { ErrorMessage } from "@hookform/error-message";
 import { StyleContext } from "/providers/StyleProvider";
-import { CreateProvider } from "/providers/CreateProvider";
+import { CommonProvider } from "/providers/CommonProvider";
 import { PreviewButton } from "/components/Molecules/CreateQuestion/PreviewButton";
 import { MarkdownPreview } from "/components/Molecules/CreateQuestion/MarkdownPreview";
 import { propsToClassKey } from "@mui/styles";
@@ -43,7 +43,7 @@ const QuestionCommentEditor = (props) => {
 
   return (
     <>
-      <CreateProvider>
+      <CommonProvider>
         <form onSubmit={handleSubmit(createQuestionComment)}>
           <Box
             sx={{
@@ -77,7 +77,7 @@ const QuestionCommentEditor = (props) => {
             </Button>
           </Box>
         </form>
-      </CreateProvider>
+      </CommonProvider>
     </>
   );
 };
