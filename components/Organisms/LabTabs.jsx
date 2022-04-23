@@ -40,7 +40,7 @@ export default function LabTabs(props) {
   // 新着 質問一覧取得
   const getNewArrival = () => {
     setPage(1);
-    axios.get("http://localhost:8000/api/v1/questions/").then((response) => {
+    axios.get("/api/v1/questions/").then((response) => {
       setPageCount(Math.ceil(response.data.length / displayNum));
       //表示データを抽出
       setQuestions(response.data.slice(0, displayNum));
@@ -50,49 +50,41 @@ export default function LabTabs(props) {
   // 未回答 質問一覧取得
   const getUnanswered = () => {
     setPage(1);
-    axios
-      .get("http://localhost:8000/api/v1/questions/unanswered")
-      .then((response) => {
-        setPageCount(Math.ceil(response.data.length / displayNum));
-        //表示データを抽出
-        setQuestions(response.data.slice(0, displayNum));
-      });
+    axios.get("/api/v1/questions/unanswered").then((response) => {
+      setPageCount(Math.ceil(response.data.length / displayNum));
+      //表示データを抽出
+      setQuestions(response.data.slice(0, displayNum));
+    });
   };
 
   // 回答有 質問一覧取得
   const getAnswered = () => {
     setPage(1);
-    axios
-      .get("http://localhost:8000/api/v1/questions/answered")
-      .then((response) => {
-        setPageCount(Math.ceil(response.data.length / displayNum));
-        //表示データを抽出
-        setQuestions(response.data.slice(0, displayNum));
-      });
+    axios.get("/api/v1/questions/answered").then((response) => {
+      setPageCount(Math.ceil(response.data.length / displayNum));
+      //表示データを抽出
+      setQuestions(response.data.slice(0, displayNum));
+    });
   };
 
   // 未解決 質問一覧取得
   const getUnsolved = () => {
     setPage(1);
-    axios
-      .get("http://localhost:8000/api/v1/questions/unsolved")
-      .then((response) => {
-        setPageCount(Math.ceil(response.data.length / displayNum));
-        //表示データを抽出
-        setQuestions(response.data.slice(0, displayNum));
-      });
+    axios.get("/api/v1/questions/unsolved").then((response) => {
+      setPageCount(Math.ceil(response.data.length / displayNum));
+      //表示データを抽出
+      setQuestions(response.data.slice(0, displayNum));
+    });
   };
 
   // 解決済 質問一覧取得
   const getSolved = () => {
     setPage(1);
-    axios
-      .get("http://localhost:8000/api/v1/questions/solved")
-      .then((response) => {
-        setPageCount(Math.ceil(response.data.length / displayNum));
-        //表示データを抽出
-        setQuestions(response.data.slice(0, page * displayNum));
-      });
+    axios.get("/api/v1/questions/solved").then((response) => {
+      setPageCount(Math.ceil(response.data.length / displayNum));
+      //表示データを抽出
+      setQuestions(response.data.slice(0, page * displayNum));
+    });
   };
 
   return (

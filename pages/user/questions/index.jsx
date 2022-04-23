@@ -17,8 +17,6 @@ export default function QuestionList() {
       .get("/api/v1/users/getUser")
       .then((response) => {})
       .catch((error) => {
-        // コンソールのエラーを消す
-        console.clear();
         router.push("/user/login");
       });
 

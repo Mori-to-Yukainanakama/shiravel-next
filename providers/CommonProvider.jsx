@@ -1,15 +1,15 @@
 import { createContext } from "react";
-import { StyleProvider } from "./StyleProvider";
+import { AuthProvider } from "@/providers/AuthProvider";
+import { StyleProvider } from "@/providers/StyleProvider";
 
 export const CommonContext = createContext({});
 
 export function CommonProvider({ children }) {
-  // .envファイルで定義したAPi側のドメイン
-  const baseUrl = process.env.NEXT_PUBLIC_API_BASE_URL;
-
   return (
-    <CommonContext.Provider value={baseUrl}>
-      <StyleProvider>{children}</StyleProvider>
+    <CommonContext.Provider value={""}>
+      <AuthProvider>
+        <StyleProvider>{children}</StyleProvider>
+      </AuthProvider>
     </CommonContext.Provider>
   );
 }

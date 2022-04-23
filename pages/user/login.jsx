@@ -1,11 +1,14 @@
+import axios from "@/libs/axios";
+import { useContext } from "react";
 import { Box, Button, Paper, TextField, Typography } from "@mui/material";
 import Spacer from "../../components/Atoms/Spacer";
 import { useForm, Controller } from "react-hook-form";
 import { ErrorMessage } from "@hookform/error-message";
-import axios from "@/libs/axios";
+import { AuthContext } from "@/providers/AuthProvider";
 
 export default function Login() {
   let errMessage = null;
+  const { setUserCurrent } = useContext(AuthContext);
 
   // react-hook-formの定型文
   const {
@@ -16,22 +19,17 @@ export default function Login() {
 
   // バリデーション通過後の処理
   const onSubmit = (values) => {
-    axios
-      .get("http://localhost:8000/sanctum/csrf-cookie", {
-        withCredentials: true,
-      })
-      .then(() => {
-        axios
-          .post("http://localhost:8000/login", values, {
-            withCredentials: true,
-          })
-          .then((res) => {
-            location.href = "http://localhost:3000/user/questions";
-          })
-          .catch((err) => {
-            console.log(err);
-          });
-      });
+    axios.get("/sanctum/csrf-cookie").then(() => {
+      axios
+        .post("/login", values)
+        .then((res) => {
+          setUserCurrent(res.data);
+          location.href = "/user/questions";
+        })
+        .catch((err) => {
+          console.log(err);
+        });
+    });
   };
 
   return (

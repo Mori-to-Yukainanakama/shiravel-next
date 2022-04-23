@@ -1,8 +1,11 @@
-import { createTheme, ThemeProvider } from "@mui/material";
+import axios from "@/libs/axios";
+import { useEffect, useContext } from "react";
 import { useRouter } from "next/router";
+import { createTheme, ThemeProvider } from "@mui/material";
 import Layout from "../components/Layout/Layout";
 import "../styles/globals.css";
-import { CommonProvider } from "../providers/CommonProvider";
+import { AuthContext } from "@/providers/AuthProvider";
+import { CommonProvider } from "@/providers/CommonProvider";
 
 const theme = createTheme({
   palette: {
@@ -19,6 +22,27 @@ const theme = createTheme({
   },
 });
 
+function AppInit() {
+  const router = useRouter();
+  const { setUserCurrent } = useContext(AuthContext);
+
+  useEffect(() => {
+    // ログイン画面はAPIを叩かない
+    if (router.pathname.includes("login")) return false;
+
+    axios
+      .get("/api/v1/users/getUser")
+      .then((res) => {
+        setUserCurrent(res.data);
+      })
+      .catch((e) => {
+        router.replace("/user/login");
+      });
+  }, [router.pathname]);
+
+  return null;
+}
+
 function MyApp({ Component, pageProps }) {
   const router = useRouter();
   const { pathname } = router;
@@ -28,6 +52,7 @@ function MyApp({ Component, pageProps }) {
       <ThemeProvider theme={theme}>
         <CommonProvider>
           <Component {...pageProps} />
+          <AppInit />
         </CommonProvider>
       </ThemeProvider>
     );
@@ -37,6 +62,7 @@ function MyApp({ Component, pageProps }) {
         <CommonProvider>
           <Layout>
             <Component {...pageProps} />
+            <AppInit />
           </Layout>
         </CommonProvider>
       </ThemeProvider>
