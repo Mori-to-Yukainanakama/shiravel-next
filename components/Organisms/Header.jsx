@@ -1,10 +1,8 @@
 import { Box, Button, Container, Typography } from "@mui/material";
-import axios from "axios";
 import { useRouter } from "next/router";
 import Navbar from "./Navbar";
 
 const Header = () => {
-
   const router = useRouter();
 
   return (

@@ -1,4 +1,4 @@
-import axios from "axios";
+import axios from "@/libs/axios";
 import { useForm } from "react-hook-form";
 import { useContext, useState } from "react";
 import { Box, Paper, Typography, Input } from "@mui/material";
@@ -10,7 +10,6 @@ import { MarkdownPreview } from "/components/Molecules/CreateQuestion/MarkdownPr
 import { propsToClassKey } from "@mui/styles";
 
 const AnswerCreateEditor = (props) => {
-
   const { theme } = useContext(StyleContext);
   const [title, setTitle] = useState("");
   const [markdownValue, setMarkdownValue] = useState("");
@@ -30,7 +29,7 @@ const AnswerCreateEditor = (props) => {
       content: markdownValue,
     };
     axios
-      .post("http://localhost:8000/api/v1/answer/create", data, {withCredentials: true})
+      .post("/api/v1/answer/create", data)
       .then((res) => {
         console.log(res);
         // TODO 質問の詳細画面へリダイレクト
@@ -38,67 +37,67 @@ const AnswerCreateEditor = (props) => {
       .catch((error) => {
         console.log(error);
       });
-      window.location.reload();
+    window.location.reload();
   }
 
   return (
     <>
-    <CreateProvider>
-      <form onSubmit={handleSubmit(createAnswer)}>
-        {/* エディター */}
-        <div className="editor">
-          <ErrorMessage
-            errors={errors}
-            name="answer"
-            render={({ message }) => (
-              <Typography
-                variant="subtitle2"
-                color={"error"}
-                sx={{ px: 2, py: 0.5 }}
-              >
-                {message}
-              </Typography>
-            )}
-          />
-          <Box
-            sx={{
-              display: "flex",
-              justifyContent: "center",
-              alignItems: "center",
-            }}
-          >
-            <textarea
-              {...register("answer", {
-                required: { value: true, message: "※必須項目です" },
-                pattern: {
-                  value: /\S/g,
-                  message: "※文字を入力してください",
-                },
-              })}
-              className={"textarea"}
-              placeholder={"テキストを入力してください"}
-              defaultValue={""}
-              name={"answer"}
-              id={"answer"}
-              cols={"100"}
-              rows={"20"}
-              onChange={(event) => {
-                setCommentValue(event.target.value);
-              }}
+      <CreateProvider>
+        <form onSubmit={handleSubmit(createAnswer)}>
+          {/* エディター */}
+          <div className="editor">
+            <ErrorMessage
+              errors={errors}
+              name="answer"
+              render={({ message }) => (
+                <Typography
+                  variant="subtitle2"
+                  color={"error"}
+                  sx={{ px: 2, py: 0.5 }}
+                >
+                  {message}
+                </Typography>
+              )}
             />
-          </Box>
-        </div>
-        {/* ボタン */}
-        <div className="btn-area">
-          <button className="btn" type="submit">
-            回答する
-          </button>
-          <PreviewButton>プレビュー</PreviewButton>
-        </div>
-        <MarkdownPreview value={markdownValue} />
-      </form>
-    </CreateProvider>
-    <style jsx>{`
+            <Box
+              sx={{
+                display: "flex",
+                justifyContent: "center",
+                alignItems: "center",
+              }}
+            >
+              <textarea
+                {...register("answer", {
+                  required: { value: true, message: "※必須項目です" },
+                  pattern: {
+                    value: /\S/g,
+                    message: "※文字を入力してください",
+                  },
+                })}
+                className={"textarea"}
+                placeholder={"テキストを入力してください"}
+                defaultValue={""}
+                name={"answer"}
+                id={"answer"}
+                cols={"100"}
+                rows={"20"}
+                onChange={(event) => {
+                  setCommentValue(event.target.value);
+                }}
+              />
+            </Box>
+          </div>
+          {/* ボタン */}
+          <div className="btn-area">
+            <button className="btn" type="submit">
+              回答する
+            </button>
+            <PreviewButton>プレビュー</PreviewButton>
+          </div>
+          <MarkdownPreview value={markdownValue} />
+        </form>
+      </CreateProvider>
+      <style jsx>{`
         .editor {
           width: 100%;
           height: 400px;

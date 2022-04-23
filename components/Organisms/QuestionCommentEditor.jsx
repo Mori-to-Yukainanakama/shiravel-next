@@ -1,4 +1,4 @@
-import axios from "axios";
+import axios from "@/libs/axios";
 import { useForm } from "react-hook-form";
 import { useContext, useState } from "react";
 import { Box, Paper, Typography, Input, TextField } from "@mui/material";
@@ -11,7 +11,6 @@ import { propsToClassKey } from "@mui/styles";
 import { Button } from "@mui/material";
 
 const QuestionCommentEditor = (props) => {
-
   const { theme } = useContext(StyleContext);
   const [title, setTitle] = useState("");
   const [commentValue, setCommentValue] = useState("");
@@ -31,7 +30,7 @@ const QuestionCommentEditor = (props) => {
       content: commentValue,
     };
     axios
-      .post("http://localhost:8000/api/v1/questionComments/create", data, {withCredentials: true})
+      .post("/api/v1/questionComments/create", data)
       .then((res) => {
         console.log(res);
         // TODO 質問の詳細画面へリダイレクト
@@ -39,7 +38,7 @@ const QuestionCommentEditor = (props) => {
       .catch((error) => {
         console.log(error);
       });
-      window.location.reload();
+    window.location.reload();
   }
 
   return (

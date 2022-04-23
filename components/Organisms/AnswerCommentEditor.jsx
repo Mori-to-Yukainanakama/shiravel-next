@@ -1,7 +1,14 @@
-import axios from "axios";
+import axios from "@/libs/axios";
 import { useForm } from "react-hook-form";
 import { useContext, useState } from "react";
-import { Box, Paper, Typography, Input, TextField, Button } from "@mui/material";
+import {
+  Box,
+  Paper,
+  Typography,
+  Input,
+  TextField,
+  Button,
+} from "@mui/material";
 import { ErrorMessage } from "@hookform/error-message";
 import { StyleContext } from "/providers/StyleProvider";
 import { CreateProvider } from "/providers/CreateProvider";
@@ -10,7 +17,6 @@ import { MarkdownPreview } from "/components/Molecules/CreateQuestion/MarkdownPr
 import { propsToClassKey } from "@mui/styles";
 
 const AnswerCommentEditor = (props) => {
-
   const { theme } = useContext(StyleContext);
   const [title, setTitle] = useState("");
   const [commentValue, setCommentValue] = useState("");
@@ -30,7 +36,7 @@ const AnswerCommentEditor = (props) => {
       content: commentValue,
     };
     axios
-      .post("http://localhost:8000/api/v1/answerComments/create", data, {withCredentials: true})
+      .post("/api/v1/answerComments/create", data)
       .then((res) => {
         console.log(res);
         // TODO 質問の詳細画面へリダイレクト
@@ -38,7 +44,7 @@ const AnswerCommentEditor = (props) => {
       .catch((error) => {
         console.log(error);
       });
-      window.location.reload();
+    window.location.reload();
   }
 
   return (

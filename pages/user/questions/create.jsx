@@ -1,4 +1,4 @@
-import axios from "axios";
+import axios from "@/libs/axios";
 import { useForm } from "react-hook-form";
 import { useContext, useState } from "react";
 import { Box, Paper, Typography, Input, Container } from "@mui/material";
@@ -20,7 +20,6 @@ export default function Create() {
     formState: { errors },
   } = useForm();
 
-
   /**
    * 質問の投稿
    */
@@ -31,7 +30,7 @@ export default function Create() {
     };
 
     axios
-      .post("http://localhost:8000/api/v1/questions/create", data, {withCredentials: true})
+      .post("/api/v1/questions/create", data)
       .then((res) => {
         console.log(res);
         // TODO 質問の詳細画面へリダイレクト

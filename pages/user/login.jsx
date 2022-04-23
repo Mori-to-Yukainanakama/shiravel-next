@@ -2,7 +2,7 @@ import { Box, Button, Paper, TextField, Typography } from "@mui/material";
 import Spacer from "../../components/Atoms/Spacer";
 import { useForm, Controller } from "react-hook-form";
 import { ErrorMessage } from "@hookform/error-message";
-import axios from "axios";
+import axios from "@/libs/axios";
 
 export default function Login() {
   let errMessage = null;

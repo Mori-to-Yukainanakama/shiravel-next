@@ -4,7 +4,7 @@ import DetailMain from "../../../components/Organisms/DetailMain";
 import Spacer from "../../../components/Atoms/Spacer";
 import AnswerCreateEditor from "../../../components/Organisms/AnswerCreateEditor";
 import { useEffect } from "react";
-import axios from "axios";
+import axios from "@/libs/axios";
 import { useState } from "react";
 import { useRouter } from "next/router";
 import { Accordion } from "@mui/material";
@@ -12,7 +12,6 @@ import { AccordionSummary } from "@mui/material";
 import { AccordionDetails } from "@mui/material";
 
 const QuestionDetail = () => {
-
   const router = useRouter();
 
   const [question, setQuestion] = useState([]);
@@ -41,50 +40,54 @@ const QuestionDetail = () => {
 
   useEffect(() => {
     // ログインしていたらユーザー情報を取得
-    axios.get("http://localhost:8000/api/v1/users/getUser",{withCredentials: true}).then((response) => {
-    }).catch((error) => {
-      console.log(error);
-      router.push('/user/login')
-    });
+    axios
+      .get("/api/v1/users/getUser")
+      .then((response) => {})
+      .catch((error) => {
+        console.log(error);
+        router.push("/user/login");
+      });
 
     if (question_id != undefined) {
-      axios.get("http://localhost:8000/api/v1/questions/detail", {params:{question_id: question_id}}).then((response) => {
-        setQuestionUserName(response.data.user.name);
-        setQuestion(response.data);
-        setAnswers(response.data.answers);
-        setQuestionComments(response.data.question_comments);
-      });
+      axios
+        .get("/api/v1/questions/detail", {
+          params: { question_id: question_id },
+        })
+        .then((response) => {
+          setQuestionUserName(response.data.user.name);
+          setQuestion(response.data);
+          setAnswers(response.data.answers);
+          setQuestionComments(response.data.question_comments);
+        });
     }
   }, [question_id, router]);
 
   return (
-      <Box sx={{ bgcolor: "primary.main", py: 8 }}>
-        <Container>
-          <Heading
-           title={question.title}
-           createdAt={question.created_at}
-           isSolved={question.is_solved}
-           isAnswered={question.is_answered}
-           questionUserName={questionUserName}
-          />
-          <Spacer height={20} />
-          <DetailMain
-            question={question}
-            answers={answers}
-            questionComments={questionComments}
-          />
-          <Spacer height={20} />
-          <Accordion disableGutters>
-            <AccordionSummary>
-              回答を投稿
-            </AccordionSummary>
-            <AccordionDetails>
-              {/* 回答投稿エディター */}
-              <AnswerCreateEditor questionId={question.question_id} />
-            </AccordionDetails>
-          </Accordion>
-        </Container>
-      </Box>
+    <Box sx={{ bgcolor: "primary.main", py: 8 }}>
+      <Container>
+        <Heading
+          title={question.title}
+          createdAt={question.created_at}
+          isSolved={question.is_solved}
+          isAnswered={question.is_answered}
+          questionUserName={questionUserName}
+        />
+        <Spacer height={20} />
+        <DetailMain
+          question={question}
+          answers={answers}
+          questionComments={questionComments}
+        />
+        <Spacer height={20} />
+        <Accordion disableGutters>
+          <AccordionSummary>回答を投稿</AccordionSummary>
+          <AccordionDetails>
+            {/* 回答投稿エディター */}
+            <AnswerCreateEditor questionId={question.question_id} />
+          </AccordionDetails>
+        </Accordion>
+      </Container>
+    </Box>
   );
 };
 

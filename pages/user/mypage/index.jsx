@@ -1,5 +1,5 @@
 import Title from "../../../components/Atoms/Title";
-import axios from "axios";
+import axios from "@/libs/axios";
 
 export default function MyPage() {
   //取得API
@@ -69,4 +69,4 @@ export default function MyPage() {
       `}</style>
     </div>
   );
-};
+}
